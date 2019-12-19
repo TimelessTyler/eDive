@@ -40,8 +40,6 @@ public class ShoppingFragment extends BaseMvpFragment<ShoppingModel> {
     ViewPager mVp;
     @BindView(R.id.bt_cl)
     Button mBtCl;
-    @BindView(R.id.ftab)
-    Myfab mFtab;
     private ArrayList<Integer> ftab;
 
     public ShoppingFragment() {
@@ -56,16 +54,6 @@ public class ShoppingFragment extends BaseMvpFragment<ShoppingModel> {
 
     @Override
     public void initView() {
-        ftab = new ArrayList<>();
-        ftab.add(R.mipmap.icon_qianshui);
-        ftab.add(R.mipmap.icon_xuezheng);
-        mFtab.setIcon(ftab);
-        mFtab.setMenuListener(new Myfab.MenuListener() {
-            @Override
-            public void click(int i) {
-                showToast(i+"");
-            }
-        });
     }
 
     @Override
@@ -94,6 +82,7 @@ public class ShoppingFragment extends BaseMvpFragment<ShoppingModel> {
             default:
                 break;
             case R.id.bt_cl:
+
                 break;
         }
     }

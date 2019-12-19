@@ -50,17 +50,20 @@
         android:theme="@style/MyTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:theme">
-        <activity android:name=".activity.DiveLogActivity"></activity>
+        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.DivingTourActivity" />
+        <activity android:name=".activity.AcademicEvidenceActivity" />
+        <activity android:name=".activity.PublishVideoActivity" />
+        <activity android:name=".activity.PublishDynamicActivity" />
+        <activity android:name=".activity.DiveLogActivity" />
         <activity android:name=".activity.ConversationActivity" />
         <activity android:name=".activity.IntegralActivity" />
         <activity android:name=".activity.RestorationActivity" />
-        <activity android:name=".activity.HomeActivity">
-
-        </activity>
+        <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.FindPasswordActivity" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.VerificationLoginActivity" />
-        <activity android:name=".activity.SplashActivity" >
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -40,11 +40,18 @@
     <color name="hintss">#767676</color>
     <color name="findpassword_bg">#001838</color>
     <color name="c_000000">#000000</color>
+    <color name="publish_bg_et">#0F1F35</color>
     <color name="c_ffffff">#ffffff</color>
+    <color name="publish_shap">#122C49</color>
+    <color name="like">#FF999999</color>
     <color name="blue">#1571FA</color>
     <color name="kit_white">#ffffffff</color>
     <color name="c_101010">#101010</color>
     <color name="app_theme_color">#E45040</color>
     <color name="coach_bg_bg">#0F1F35</color>
     <color name="text_color">#FFCCCCCC</color>
+    <color name="peronal_bg">#FF00112A</color>
+    <color name="coach_bgs">#FF001838</color>
+    <color name="hint_oeder">#042242</color>
+    <color name="coach_coach">#FF0066FF</color>
 </resources>
