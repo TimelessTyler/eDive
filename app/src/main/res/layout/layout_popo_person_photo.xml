@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_10"
+    android:gravity="center"
+    android:background="@color/Setting_bg"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_camer"
+        android:padding="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="拍照"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="@color/hint_person_popo"
+        />
+    <TextView
+        android:id="@+id/tv_photo"
+        android:padding="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/white"
+        android:text="相册上传"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:background="@color/hint_person_popo"
+        />
+    <TextView
+        android:id="@+id/tv_colse"
+        android:padding="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/white"
+        android:text="取消"
+        />
+</LinearLayout>

@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/Setting_bg"
     android:layout_height="match_parent"
     tools:context=".activity.DivingTourActivity">
+    <com.example.edive.design.CommonTitle
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleText="潜水游"
+        app:backImage="@mipmap/icon_back"
+        app:canBack="false"
+        />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -1,9 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/Setting_bg"
     android:layout_height="match_parent"
     tools:context=".activity.ConversationActivity">
+    <RelativeLayout
+        android:id="@+id/itemrl"
+        android:padding="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:background="@color/findpassword_bg"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:src="@mipmap/icon_back"
+            android:layout_centerVertical="true"
+            />
+        <LinearLayout
+            android:background="@drawable/srech_bg"
+            android:layout_width="@dimen/dp_260"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="@dimen/dp_15"
+                android:padding="@dimen/dp_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_search"
+                />
+            <EditText
+                android:id="@+id/et_search_data"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:background="@null"
+                android:hint="请输入内容"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                />
+        </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:layout_alignParentRight="true"
+            android:text="取消"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/sp_14"
+            />
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rec_search"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"/>
+    <RelativeLayout
+        android:id="@+id/rl_dynic"
+        android:layout_marginTop="@dimen/dp_6"
+        android:layout_width="wrap_content"
+        android:background="@mipmap/color"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/white"
+            android:drawableRight="@mipmap/icon_remen"
+            android:drawablePadding="@dimen/dp_5"
+            android:text="热门话题"
+            />
+    </RelativeLayout>
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smrefres"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:id="@+id/rec"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

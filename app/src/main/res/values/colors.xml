@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#1571FA</color>
     <color name="white">#FFFFFF</color>
     <color name="colorstatus_bar">#C1C1C1</color>
     <color name="hint">#999999</color>
@@ -54,4 +54,16 @@
     <color name="coach_bgs">#FF001838</color>
     <color name="hint_oeder">#042242</color>
     <color name="coach_coach">#FF0066FF</color>
+    <color name="personal_data">#0F1F35</color>
+    <color name="update_phone_bg">#001F4B</color>
+    <color name="homeall_bg">#001128</color>
+    <color name="hint_person_popo">#0F2644</color>
+    <color name="followbg">#0F1F35</color>
+    <color name="zan_color">#0C8CEF</color>
+    <color name="hint_de">#132338</color>
+    <color name="search_bg_color">#01295D</color>
+    <color name="hintcomment">#132338</color>
+    <color name="cardview_bg_conver">#0F1F35</color>
+    <color name="location_item_bg">#0F1F35</color>
+    <color name="hint_location">#001128</color>
 </resources>

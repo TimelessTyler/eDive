@@ -50,7 +50,18 @@
         android:theme="@style/MyTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:theme">
-        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.LocationActivity"></activity>
+        <activity android:name=".activity.ChooesConversationActivity" />
+        <activity android:name=".activity.MyDynamicDetailsPersonActivity" />
+        <activity android:name=".activity.UserPersonDestialsActivity" />
+        <activity android:name=".activity.ShowPhotoActivity" />
+        <activity android:name=".activity.DynamicDetailsActivity" />
+        <activity android:name=".activity.TopicDetailsActivity" />
+        <activity android:name=".activity.UpdateMyTextActivity" />
+        <activity android:name=".activity.UpdateNameActivity" />
+        <activity android:name=".activity.UpdatePhoneActivity" />
+        <activity android:name=".activity.PersonalDataActivity" />
+        <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.DivingTourActivity" />
         <activity android:name=".activity.AcademicEvidenceActivity" />
         <activity android:name=".activity.PublishVideoActivity" />
@@ -79,6 +90,12 @@
                 <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="52c3d70dc945a9795f952523255f6517" />
+
+        <service android:name="com.amap.api.location.APSService" />
     </application>
 
 </manifest>

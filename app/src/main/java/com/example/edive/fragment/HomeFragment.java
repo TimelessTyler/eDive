@@ -17,11 +17,20 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.edive.MainActivity;
 import com.example.edive.R;
+import com.example.edive.activity.ConversationActivity;
+import com.example.edive.activity.TopicDetailsActivity;
+import com.example.edive.adapter.RlvHomeChildAdapter;
 import com.example.edive.adapter.RlvHomesAdapter;
+import com.example.edive.adapter.VpHomeTabAdapter;
 import com.example.edive.bean.BannerInfo;
+import com.example.edive.bean.TopicBean;
+import com.example.edive.fragment.homefragment.HotFragment;
+import com.example.edive.fragment.homefragment.NewDynamicFragment;
 import com.example.edive.frame.ApiConfig;
 import com.example.edive.frame.BaseMvpFragment;
+import com.example.edive.local_utils.SpacesItemDecoration;
 import com.example.edive.model.HomeModel;
 
 import org.json.JSONException;
@@ -78,7 +87,11 @@ public class HomeFragment extends BaseMvpFragment<HomeModel> {
     @BindView(R.id.homevp)
     ViewPager mHomevp;
     private ArrayList<BannerInfo.DataBean> list;
+    private ArrayList<Fragment> fs;
+    private ArrayList<TopicBean.DataBean> dataBeans;
     private RlvHomesAdapter adapter;
+    private RlvHomeChildAdapter adapters;
+    private VpHomeTabAdapter vpHomeTabAdapter;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -93,11 +106,55 @@ public class HomeFragment extends BaseMvpFragment<HomeModel> {
     @Override
     public void initView() {
         list = new ArrayList<>();
+        dataBeans = new ArrayList<>();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mRec.setLayoutManager(linearLayoutManager);
         adapter = new RlvHomesAdapter(getActivity(), list);
         mRec.setAdapter(adapter);
+        LinearLayoutManager linearLayoutManagers = new LinearLayoutManager(getActivity());
+        linearLayoutManagers.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mRecClass.setLayoutManager(linearLayoutManagers);
+        adapters = new RlvHomeChildAdapter(getActivity(), dataBeans);
+        mRecClass.addItemDecoration(new SpacesItemDecoration(10,0));
+        mRecClass.setAdapter(adapters);
+        adapters.setonclick(new RlvHomeChildAdapter.setonclick() {
+            @Override
+            public void setonclick(View view, int pos) {
+                Intent intent = new Intent(getActivity(), TopicDetailsActivity.class);
+                intent.putExtra("id", pos);
+                startActivity(intent);
+            }
+        });
+        initViewPage();
+    }
 
+    private void initViewPage() {
+        fs = new ArrayList<>();
+        fs.add(new NewDynamicFragment());
+        fs.add(new HotFragment());
+        mHomeTabs.addTab(mHomeTabs.newTab().setText("最新动态"));
+        mHomeTabs.addTab(mHomeTabs.newTab().setText("热门动态"));
+        vpHomeTabAdapter = new VpHomeTabAdapter(getChildFragmentManager(), fs);
+        mHomevp.setAdapter(vpHomeTabAdapter);
+        mHomeTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mHomevp.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+        mHomevp.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mHomeTabs));
+//        mHomeTabs.setTabIndicatorFullWidth(false);
+        mHomeTabs.setSelectedTabIndicatorHeight(0);
     }
 
     @Override
@@ -118,6 +175,7 @@ public class HomeFragment extends BaseMvpFragment<HomeModel> {
         String string = jsonObject.toString();
         RequestBody body = RequestBody.create(type, string);
         mPresenter.getData(ApiConfig.HomeTest_DATA, body);
+        mPresenter.getData(ApiConfig.HOME_TOPIC_DATA);
     }
 
     @Override
@@ -143,6 +201,16 @@ public class HomeFragment extends BaseMvpFragment<HomeModel> {
                     showToast(bean.getMessage());
                 }
                 break;
+            case ApiConfig.HOME_TOPIC_DATA:
+                TopicBean beans = (TopicBean) t[0];
+                String message = beans.getMessage();
+                if (message.isEmpty()) {
+                    startActivity(new Intent(getActivity(), MainActivity.class));
+                }
+                List<TopicBean.DataBean> data = beans.getData();
+                dataBeans.addAll(data);
+                adapters.notifyDataSetChanged();
+                break;
         }
     }
 
@@ -167,7 +235,7 @@ public class HomeFragment extends BaseMvpFragment<HomeModel> {
 
                 break;
             case R.id.tv_topic_all:
-
+                startActivity(new Intent(getActivity(), ConversationActivity.class));
                 break;
         }
     }

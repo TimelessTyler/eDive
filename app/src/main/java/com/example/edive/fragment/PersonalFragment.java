@@ -12,9 +12,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.edive.R;
+import com.example.edive.activity.MyDynamicDetailsPersonActivity;
+import com.example.edive.activity.PersonalDataActivity;
 import com.example.edive.activity.SettingActivity;
+import com.example.edive.bean.PersonalMessagerBean;
 import com.example.edive.design.RoundOrCircleImage;
+import com.example.edive.frame.ApiConfig;
 import com.example.edive.frame.BaseMvpFragment;
 import com.example.edive.model.PersonModel;
 
@@ -49,6 +54,10 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
     TextView mTvLikeNum;
     @BindView(R.id.tv_fb_num)
     TextView mTvFbNum;
+    @BindView(R.id.tv_grade)
+    TextView MtvGrade;
+    @BindView(R.id.tv_invitationcode)
+    TextView MtvInitationCode;
     @BindView(R.id.rl_myorder)
     RelativeLayout mRlMyorder;
     @BindView(R.id.rl_myshenghe)
@@ -86,7 +95,7 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
 
     @Override
     public void initData() {
-
+        mPresenter.getData(ApiConfig.PERSONALMESSAGER);
     }
 
     @Override
@@ -96,12 +105,34 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
 
     @Override
     public void onError(int whichApi, Throwable e) {
-
+            showToast(e.getMessage());
     }
 
     @Override
     public void onResponse(int whichApi, Object[] t) {
-
+        switch (whichApi){
+            case ApiConfig.PERSONALMESSAGER:
+                PersonalMessagerBean personalMessagerBean = (PersonalMessagerBean) t[0];
+                if (personalMessagerBean.getCode() == 200) {
+                    PersonalMessagerBean.ResultBean result = personalMessagerBean.getResult();
+                    String name = result.getNickName();
+                    String icon = result.getIcon();
+                    String grade = result.getCoachGrade();
+                    int totalInvitations = result.getTotalInvitations();
+                    int totalFollow = result.getTotalFollow();
+                    int totalProduct = result.getTotalProduct();
+                    mTvName.setText(name);
+                    mTvLikeNum.setText(totalFollow+"");
+                    MtvGrade.setText("V"+grade+"教练");
+                    mTvStudentNum.setText(totalInvitations+"");
+                    mTvFbNum.setText(totalProduct+"");
+                    Glide.with(getActivity()).load(icon).error(R.mipmap.morentouxiang).placeholder(R.mipmap.morentouxiang).into(mIvShow);
+                    MtvInitationCode.setText("邀请码："+result.getInvitationCode());
+                }else {
+                    showToast(personalMessagerBean.getMessage());
+                }
+                break;
+        }
     }
 
 
@@ -116,6 +147,7 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
                 break;
             case R.id.iv_show:
                 //头像
+                startActivity(new Intent(getActivity(), PersonalDataActivity.class));
                 break;
             case R.id.tv_name:
                 //名称
@@ -128,9 +160,11 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
                 break;
             case R.id.tv_student_num:
                 //学员数
+
                 break;
             case R.id.tv_like_num:
                 //关注
+
                 break;
             case R.id.tv_fb_num:
                 //发布
@@ -143,6 +177,7 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
                 break;
             case R.id.rl_mydynamic:
                 //动态
+                startActivity(new Intent(getActivity(), MyDynamicDetailsPersonActivity.class));
                 break;
             case R.id.rl_mywallet:
                 //钱包

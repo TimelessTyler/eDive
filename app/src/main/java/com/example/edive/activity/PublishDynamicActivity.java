@@ -1,11 +1,15 @@
 package com.example.edive.activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -13,12 +17,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.edive.R;
 import com.example.edive.adapter.QuestionFeedbackAdapter;
+import com.example.edive.bean.AddDynamicBean;
+import com.example.edive.bean.UpLoadBean;
+import com.example.edive.frame.ApiConfig;
+import com.example.edive.frame.BaseApplication;
 import com.example.edive.frame.BaseMvpActivity;
 import com.example.edive.local_utils.MediaLoader;
+import com.example.edive.local_utils.StringUtils;
 import com.example.edive.model.HomeModel;
+import com.example.edive.utils.SharedPrefrenceUtils;
+import com.google.gson.Gson;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.XXPermissions;
 import com.yanzhenjie.album.Action;
@@ -26,12 +38,25 @@ import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.AlbumConfig;
 import com.yanzhenjie.album.AlbumFile;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
 
@@ -51,6 +76,9 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
     TextView mTvLocation;
     private QuestionFeedbackAdapter adapter;
     private ArrayList<String> list;
+    private ArrayList<String> PicList;
+    private int topicid;
+    private String location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +99,7 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
     public void initView() {
         getPermission();
         list = new ArrayList<>();
+        PicList = new ArrayList<>();
         Album.initialize(AlbumConfig.newBuilder(PublishDynamicActivity.this).setAlbumLoader(new MediaLoader()).build());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(PublishDynamicActivity.this, 3);
         mRec.setLayoutManager(gridLayoutManager);
@@ -101,9 +130,7 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
                     public void onAction(@NonNull ArrayList<AlbumFile> result) {
                         for (int i = 0; i < result.size(); i++) {
                             String path = result.get(i).getPath();
-
                             list.add(path);
-
                         }
                         adapter.notifyDataSetChanged();
                     }
@@ -132,7 +159,19 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
 
     @Override
     public void onResponse(int whichApi, Object[] t) {
-
+        switch (whichApi){
+            case ApiConfig.ADDDYNAMIC:
+                AddDynamicBean upLoadBean = (AddDynamicBean) t[0];
+                if (upLoadBean.getCode() == 200) {
+                    showToast(upLoadBean.getMessage());
+//                    startActivity(new Intent(PublishDynamicActivity.this,HomeActivity.class));
+//                    this.finish();
+                    finish();
+                }else {
+                    showToast(upLoadBean.getMessage());
+                }
+                break;
+        }
     }
 
     @OnClick({R.id.iv_back, R.id.bt_ok, R.id.tv_conversation, R.id.tv_location})
@@ -141,13 +180,128 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
             default:
                 break;
             case R.id.iv_back:
+                finish();
                 break;
             case R.id.bt_ok:
+                initOK();
                 break;
             case R.id.tv_conversation:
+                Intent intent = new Intent(PublishDynamicActivity.this, ChooesConversationActivity.class);
+                startActivityForResult(intent,100);
                 break;
             case R.id.tv_location:
+                Intent intent1 = new Intent(PublishDynamicActivity.this, LocationActivity.class);
+                startActivityForResult(intent1,100);
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == 200) {
+            String topicname = data.getStringExtra("topicname");
+            topicid = data.getExtras().getInt("topicid");
+            String lo = data.getStringExtra("lo");
+            if (!TextUtils.isEmpty(topicname)) {
+                mTvTop.setText("#"+topicname);
+            }
+            if (!TextUtils.isEmpty(lo)) {
+                mTvLocation.setText(lo);
+            }
+        }
+    }
+
+    private void initOK() {
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .build();
+        for (int i = 0; i < list.size(); i++) {
+
+            /**
+             * 封装文件上传的  请求体
+             */
+            File file = new File(list.get(i));
+            //1.设置文件以及文件上传类型封装
+            RequestBody requestBody = RequestBody.create(MediaType.parse("image/jpg"), file);
+
+            //2.文件上传的请求体封装
+            MultipartBody body = new MultipartBody.Builder()
+                    .setType(MultipartBody.FORM)//设置文件上传Type类型为multipart/form-data
+                    .addFormDataPart("files", file.getName(), requestBody)//设置文件参数
+                    .build();
+
+            Request request = new Request.Builder()
+                    .url("http://192.168.0.246:8000/uploadFile/saveFile")
+                    .addHeader("Authorization", "Bearer " + BaseApplication.getInstance().Token)
+                    .post(body)
+                    .build();
+
+            Call call = okHttpClient.newCall(request);
+
+            call.enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Log.e("onFailure", e.getMessage());
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String str = response.body().string();
+
+                    Gson gson = new Gson();
+                    final UpLoadBean upLoadBean = gson.fromJson(str, UpLoadBean.class);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (upLoadBean != null) {
+                                if (upLoadBean.getCode() == 200) {
+                                    Log.e("ben", upLoadBean.toString());
+                                    //上传成功之后返回的图片路径
+                                    String data = upLoadBean.getData();
+                                    PicList.add(data);
+                                    if (PicList.size() == list.size()) {
+//                                                String datas = ArrayListToString(PicList);
+                                        String join = StringUtils.join(PicList, ",");
+                                        String nickname = mApplication.nickname;
+                                        String content = mEtText.getText().toString();
+                                        String userid = mApplication.userid;
+                                        location = mTvLocation.getText().toString();
+                                        if (location.equals("添加地点")) {
+                                            location = "";
+                                        }
+                                        String topicids = SharedPrefrenceUtils.getString(PublishDynamicActivity.this, "topicid");
+                                        topicid = Integer.valueOf(topicids);
+                                        MediaType type = MediaType.parse("application/json;charset=UTF-8");
+                                        JSONObject jsonObject = new JSONObject();
+                                        try {
+                                            jsonObject.put("dynamicAddress", location);
+                                            jsonObject.put("dynamicAuthor", nickname);
+                                            jsonObject.put("dynamicContent", content);
+                                            jsonObject.put("dynamicPicture", join);
+                                            jsonObject.put("topicId", topicid);
+                                            jsonObject.put("userId", userid);
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                        String string = jsonObject.toString();
+                                        RequestBody bodys = RequestBody.create(type, string);
+                                        mPresenter.getData(ApiConfig.ADDDYNAMIC, bodys);
+//                                                finish();
+//                                                FileUtils.deleteDir();//删除保存内容
+                                    }
+                                } else {
+//                                            Toast.makeText(PublishDynamicActivity.this,upLoadBean.getCode(),Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(PublishDynamicActivity.this, "错误", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+                    });
+                }
+            });
         }
     }
 
