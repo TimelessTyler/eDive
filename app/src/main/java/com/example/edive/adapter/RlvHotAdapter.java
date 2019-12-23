@@ -60,9 +60,11 @@ public class RlvHotAdapter extends RecyclerView.Adapter<RlvHotAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 int id = list.get(i).getId();
+                int userType = list.get(i).getUserType();
                 Intent intent = new Intent(activity, DynamicDetailsActivity.class);
                 intent.putExtra("pos",id);
-                intent.putExtra("pl","pl");
+                intent.putExtra("pl",0);
+                intent.putExtra("userType",userType);
                 activity.startActivity(intent);
             }
         });

@@ -66,4 +66,5 @@
     <color name="cardview_bg_conver">#0F1F35</color>
     <color name="location_item_bg">#0F1F35</color>
     <color name="hint_location">#001128</color>
+    <color name="album">#FF002153</color>
 </resources>

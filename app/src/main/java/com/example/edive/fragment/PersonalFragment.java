@@ -22,6 +22,7 @@ import com.example.edive.design.RoundOrCircleImage;
 import com.example.edive.frame.ApiConfig;
 import com.example.edive.frame.BaseMvpFragment;
 import com.example.edive.model.PersonModel;
+import com.example.edive.utils.NormalConfig;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,20 +69,15 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
     RelativeLayout mRlMywallet;
     @BindView(R.id.rl_myclub)
     RelativeLayout mRlMyclub;
-    private View view;
-    private Unbinder unbinder;
-
-    public PersonalFragment() {
-        // Required empty public constructor
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        // TODO Auto-generated method stub
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+            mPresenter.getData(ApiConfig.PERSONALMESSAGER);
+        }
     }
 
-
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-////        return inflater.inflate(, container, false);
-//    }
 
     @Override
     public int getLayoutId() {
@@ -186,5 +182,11 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
                 //俱乐部
                 break;
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.getData(ApiConfig.PERSONALMESSAGER);
     }
 }

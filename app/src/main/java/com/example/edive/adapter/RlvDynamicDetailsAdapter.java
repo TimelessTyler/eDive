@@ -141,7 +141,7 @@ public class RlvDynamicDetailsAdapter extends RecyclerView.Adapter<RlvDynamicDet
                 int id = list.get(i).getId();
                 viewHolder1.mBtNoLike.setVisibility(View.GONE);
                 viewHolder1.mBtLike.setVisibility(View.VISIBLE);
-                likes.setlikeonclick(id,v);
+                likes.setlikeonclick(i,v);
                 viewHolder1.mTvDznum.setText(list.get(i).getDynamicPraise()+1+"赞");
             }
         });
@@ -153,7 +153,7 @@ public class RlvDynamicDetailsAdapter extends RecyclerView.Adapter<RlvDynamicDet
                 viewHolder1.mBtNoLike.setVisibility(View.VISIBLE);
                 int dynamicPraise = list.get(i).getDynamicPraise();
                 viewHolder1.mTvDznum.setText(dynamicPraise+"赞");
-                like.setnolikeonclick(id,v);
+                like.setnolikeonclick(i,v);
 //                viewHolder.mBtNoLike.setVisibility(View.VISIBLE);/
 //                viewHolder.mBtLike.setVisibility(View.GONE);
             }

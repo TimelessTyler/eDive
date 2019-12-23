@@ -24,6 +24,26 @@ public class PersonModel implements ICommonModel {
             case ApiConfig.PERSONALMESSAGER:
                 mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getPersonalMessager(),view,whichApi);
                 break;
+            case ApiConfig.USERDATALIS:
+                int userids = (int) t[0];
+                int userType = (int) t[1];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getUserPerson(userids,userType),view,whichApi);
+                break;
+            case ApiConfig.NOTFOLLOWS:
+                RequestBody bodyfollows = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getNotfollows(bodyfollows),view,whichApi);
+                break;
+            case ApiConfig.FOLLOWUSER:
+                RequestBody follows = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getFollow(follows),view,whichApi);
+                break;
+            case ApiConfig.LABUMUSERPERSONAL:
+                int useridperson = (int) t[0];
+                int personnum = (int) t[1];
+                int personsize = (int) t[2];
+                int userTypes = (int) t[3];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getAlbum(useridperson,personnum,personsize,userTypes),view,whichApi);
+                break;
         }
     }
 }

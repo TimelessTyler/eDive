@@ -7,7 +7,7 @@ public class HotDetalisBean {
     /**
      * code : 200
      * message : 操作成功
-     * data : {"total":10,"list":[{"id":29,"dynamicAuthor":"化计划","dynamicHeadPortrait":null,"dynamicContent":"#克罗索尔岛17373747558488484","createTime":"2019-11-28 11:04:23","dynamicAddress":" 恒大冰泉直销店(马甸东路)","dynamicPicture":"","dynamicPraise":0,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":28,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":0},{"id":28,"dynamicAuthor":"化计划","dynamicHeadPortrait":null,"dynamicContent":"#克罗索尔岛13873744","createTime":"2019-11-28 11:03:30","dynamicAddress":" 悦容女子美容养生SPA会所(马甸店)","dynamicPicture":"","dynamicPraise":1,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":28,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":0},{"id":9,"dynamicAuthor":"小D","dynamicHeadPortrait":"头像","dynamicContent":"发布动态测试4","createTime":"2019-10-10 14:53:17","dynamicAddress":"string","dynamicPicture":"https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-005.jpg","dynamicPraise":17,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":1,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":1},{"id":13,"dynamicAuthor":"小D","dynamicHeadPortrait":"头像","dynamicContent":"发布动态测试4","createTime":"2019-10-10 14:53:17","dynamicAddress":"string","dynamicPicture":"https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-005.jpg","dynamicPraise":13,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":19,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":0},{"id":8,"dynamicAuthor":"小C","dynamicHeadPortrait":"头像","dynamicContent":"发布动态测试3","createTime":"2019-10-09 14:53:17","dynamicAddress":"string","dynamicPicture":"https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-009.jpg,https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-011.jpg,https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-001.jpg","dynamicPraise":12,"dynamicSharenum":0,"dynamicCommentnum":1,"userId":3,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":0}],"pageNum":1,"pageSize":5,"size":5,"startRow":1,"endRow":5,"pages":2,"prePage":0,"nextPage":2,"isFirstPage":true,"isLastPage":false,"hasPreviousPage":false,"hasNextPage":true,"navigatePages":8,"navigatepageNums":[1,2],"navigateFirstPage":1,"navigateLastPage":2,"lastPage":2,"firstPage":1}
+     * data : {"total":11,"list":[{"id":78,"dynamicAuthor":"今天明天后天","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576738695337_69518021.jpg","dynamicContent":"潜水","createTime":"2019-12-20 15:31:12","dynamicAddress":"北京市海淀区马甸东路17号靠近中国农业银行(马甸东路支行)","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576827072175_91376915.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576827072274_38236025.jpg","dynamicPraise":4,"dynamicSharenum":0,"dynamicCommentnum":2,"userId":32,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":77,"dynamicAuthor":"不定的水面","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/compent/20191208145645.png","dynamicContent":"哈哈哈哈","createTime":"2019-12-19 17:42:15","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576748533106_48365958.jpg","dynamicPraise":3,"dynamicSharenum":0,"dynamicCommentnum":3,"userId":54,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":48,"dynamicAuthor":"Deja_Vus","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1575974652031_05394441.jpg","dynamicContent":"测试","createTime":"2019-12-11 22:15:42","dynamicAddress":"不显示位置","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576073738947_91502189.jpg","dynamicPraise":3,"dynamicSharenum":0,"dynamicCommentnum":3,"userId":47,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":57,"dynamicAuthor":"Eric","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576461251081_09171781.jpg","dynamicContent":"真爽","createTime":"2019-12-13 14:52:02","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576219921240_77854234.jpg","dynamicPraise":2,"dynamicSharenum":0,"dynamicCommentnum":1,"userId":49,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":52,"dynamicAuthor":"Eric","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576461251081_09171781.jpg","dynamicContent":"好美啊","createTime":"2019-12-12 09:48:02","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576115273464_17738582.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576115274046_31965687.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576115274401_76078687.jpg","dynamicPraise":2,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":49,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":41,"dynamicAuthor":"礼貌的下巴","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/compent/20191208145645.png","dynamicContent":"来一场演唱会","createTime":"2019-12-08 18:55:19","dynamicAddress":" 恒大冰泉直销店(马甸东路)","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1575802518738_19916010.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1575802518808_68238126.jpg","dynamicPraise":2,"dynamicSharenum":0,"dynamicCommentnum":2,"userId":34,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":38,"dynamicAuthor":"多多","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1575793587544_19318556.jpg","dynamicContent":"度蜜月的好地方","createTime":"2019-12-08 18:52:44","dynamicAddress":" 24超市煎饼","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1575802363332_90427427.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1575802363413_73249094.jpg","dynamicPraise":2,"dynamicSharenum":0,"dynamicCommentnum":1,"userId":33,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":72,"dynamicAuthor":"Eric","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576461251081_09171781.jpg","dynamicContent":"这是什么生物","createTime":"2019-12-13 15:23:28","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576221806761_44073430.jpg","dynamicPraise":1,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":49,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":43,"dynamicAuthor":"今天明天后天","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576738695337_69518021.jpg","dynamicContent":"哈咯你好啊","createTime":"2019-12-09 11:00:48","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1575860442486_67274163.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1575860444931_27947434.jpg","dynamicPraise":1,"dynamicSharenum":0,"dynamicCommentnum":12,"userId":32,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":81,"dynamicAuthor":"冷淡的书本","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/compent/20191208145645.png","dynamicContent":"哈哈哈哈","createTime":"2019-12-20 18:45:21","dynamicAddress":"","dynamicPicture":"","dynamicPraise":0,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":56,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":79,"dynamicAuthor":"多多支持","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576835049643_29924633.jpg","dynamicContent":"一起度蜜月","createTime":"2019-12-20 17:58:26","dynamicAddress":"","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576835905394_99556229.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576835905462_44835518.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576835905501_80993615.jpg","dynamicPraise":0,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":6,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":2,"identification":0}],"pageNum":1,"pageSize":11,"size":11,"startRow":0,"endRow":10,"pages":1,"prePage":0,"nextPage":0,"isFirstPage":true,"isLastPage":true,"hasPreviousPage":false,"hasNextPage":false,"navigatePages":8,"navigatepageNums":[1],"navigateFirstPage":1,"navigateLastPage":1,"firstPage":1,"lastPage":1}
      */
 
     private int code;
@@ -40,26 +40,26 @@ public class HotDetalisBean {
 
     public static class DataBean {
         /**
-         * total : 10
-         * list : [{"id":29,"dynamicAuthor":"化计划","dynamicHeadPortrait":null,"dynamicContent":"#克罗索尔岛17373747558488484","createTime":"2019-11-28 11:04:23","dynamicAddress":" 恒大冰泉直销店(马甸东路)","dynamicPicture":"","dynamicPraise":0,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":28,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":0},{"id":28,"dynamicAuthor":"化计划","dynamicHeadPortrait":null,"dynamicContent":"#克罗索尔岛13873744","createTime":"2019-11-28 11:03:30","dynamicAddress":" 悦容女子美容养生SPA会所(马甸店)","dynamicPicture":"","dynamicPraise":1,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":28,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":0},{"id":9,"dynamicAuthor":"小D","dynamicHeadPortrait":"头像","dynamicContent":"发布动态测试4","createTime":"2019-10-10 14:53:17","dynamicAddress":"string","dynamicPicture":"https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-005.jpg","dynamicPraise":17,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":1,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":1},{"id":13,"dynamicAuthor":"小D","dynamicHeadPortrait":"头像","dynamicContent":"发布动态测试4","createTime":"2019-10-10 14:53:17","dynamicAddress":"string","dynamicPicture":"https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-005.jpg","dynamicPraise":13,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":19,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":0},{"id":8,"dynamicAuthor":"小C","dynamicHeadPortrait":"头像","dynamicContent":"发布动态测试3","createTime":"2019-10-09 14:53:17","dynamicAddress":"string","dynamicPicture":"https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-009.jpg,https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-011.jpg,https://img.ivsky.com/img/tupian/pre/201811/04/qianshui-001.jpg","dynamicPraise":12,"dynamicSharenum":0,"dynamicCommentnum":1,"userId":3,"topicId":1,"topicName":"克罗索尔岛","delflag":0,"identificationPraise":0,"identification":0}]
+         * total : 11
+         * list : [{"id":78,"dynamicAuthor":"今天明天后天","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576738695337_69518021.jpg","dynamicContent":"潜水","createTime":"2019-12-20 15:31:12","dynamicAddress":"北京市海淀区马甸东路17号靠近中国农业银行(马甸东路支行)","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576827072175_91376915.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576827072274_38236025.jpg","dynamicPraise":4,"dynamicSharenum":0,"dynamicCommentnum":2,"userId":32,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":77,"dynamicAuthor":"不定的水面","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/compent/20191208145645.png","dynamicContent":"哈哈哈哈","createTime":"2019-12-19 17:42:15","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576748533106_48365958.jpg","dynamicPraise":3,"dynamicSharenum":0,"dynamicCommentnum":3,"userId":54,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":48,"dynamicAuthor":"Deja_Vus","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1575974652031_05394441.jpg","dynamicContent":"测试","createTime":"2019-12-11 22:15:42","dynamicAddress":"不显示位置","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576073738947_91502189.jpg","dynamicPraise":3,"dynamicSharenum":0,"dynamicCommentnum":3,"userId":47,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":57,"dynamicAuthor":"Eric","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576461251081_09171781.jpg","dynamicContent":"真爽","createTime":"2019-12-13 14:52:02","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576219921240_77854234.jpg","dynamicPraise":2,"dynamicSharenum":0,"dynamicCommentnum":1,"userId":49,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":52,"dynamicAuthor":"Eric","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576461251081_09171781.jpg","dynamicContent":"好美啊","createTime":"2019-12-12 09:48:02","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576115273464_17738582.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576115274046_31965687.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576115274401_76078687.jpg","dynamicPraise":2,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":49,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":41,"dynamicAuthor":"礼貌的下巴","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/compent/20191208145645.png","dynamicContent":"来一场演唱会","createTime":"2019-12-08 18:55:19","dynamicAddress":" 恒大冰泉直销店(马甸东路)","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1575802518738_19916010.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1575802518808_68238126.jpg","dynamicPraise":2,"dynamicSharenum":0,"dynamicCommentnum":2,"userId":34,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":38,"dynamicAuthor":"多多","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1575793587544_19318556.jpg","dynamicContent":"度蜜月的好地方","createTime":"2019-12-08 18:52:44","dynamicAddress":" 24超市煎饼","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1575802363332_90427427.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1575802363413_73249094.jpg","dynamicPraise":2,"dynamicSharenum":0,"dynamicCommentnum":1,"userId":33,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":72,"dynamicAuthor":"Eric","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576461251081_09171781.jpg","dynamicContent":"这是什么生物","createTime":"2019-12-13 15:23:28","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576221806761_44073430.jpg","dynamicPraise":1,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":49,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":43,"dynamicAuthor":"今天明天后天","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576738695337_69518021.jpg","dynamicContent":"哈咯你好啊","createTime":"2019-12-09 11:00:48","dynamicAddress":"添加地点","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1575860442486_67274163.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1575860444931_27947434.jpg","dynamicPraise":1,"dynamicSharenum":0,"dynamicCommentnum":12,"userId":32,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":81,"dynamicAuthor":"冷淡的书本","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/compent/20191208145645.png","dynamicContent":"哈哈哈哈","createTime":"2019-12-20 18:45:21","dynamicAddress":"","dynamicPicture":"","dynamicPraise":0,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":56,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":1,"identification":0},{"id":79,"dynamicAuthor":"多多支持","dynamicHeadPortrait":"http://47.107.50.253:8080/webapps/uploadFile/image/1576835049643_29924633.jpg","dynamicContent":"一起度蜜月","createTime":"2019-12-20 17:58:26","dynamicAddress":"","dynamicPicture":"http://47.107.50.253:8080/webapps/uploadFile/image/1576835905394_99556229.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576835905462_44835518.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576835905501_80993615.jpg","dynamicPraise":0,"dynamicSharenum":0,"dynamicCommentnum":0,"userId":6,"topicId":21,"topicName":"蜜月岛","delflag":0,"identificationPraise":0,"width":null,"height":null,"userType":2,"identification":0}]
          * pageNum : 1
-         * pageSize : 5
-         * size : 5
-         * startRow : 1
-         * endRow : 5
-         * pages : 2
+         * pageSize : 11
+         * size : 11
+         * startRow : 0
+         * endRow : 10
+         * pages : 1
          * prePage : 0
-         * nextPage : 2
+         * nextPage : 0
          * isFirstPage : true
-         * isLastPage : false
+         * isLastPage : true
          * hasPreviousPage : false
-         * hasNextPage : true
+         * hasNextPage : false
          * navigatePages : 8
-         * navigatepageNums : [1,2]
+         * navigatepageNums : [1]
          * navigateFirstPage : 1
-         * navigateLastPage : 2
-         * lastPage : 2
+         * navigateLastPage : 1
          * firstPage : 1
+         * lastPage : 1
          */
 
         private int total;
@@ -78,8 +78,8 @@ public class HotDetalisBean {
         private int navigatePages;
         private int navigateFirstPage;
         private int navigateLastPage;
-        private int lastPage;
         private int firstPage;
+        private int lastPage;
         private List<ListBean> list;
         private List<Integer> navigatepageNums;
 
@@ -211,20 +211,20 @@ public class HotDetalisBean {
             this.navigateLastPage = navigateLastPage;
         }
 
-        public int getLastPage() {
-            return lastPage;
-        }
-
-        public void setLastPage(int lastPage) {
-            this.lastPage = lastPage;
-        }
-
         public int getFirstPage() {
             return firstPage;
         }
 
         public void setFirstPage(int firstPage) {
             this.firstPage = firstPage;
+        }
+
+        public int getLastPage() {
+            return lastPage;
+        }
+
+        public void setLastPage(int lastPage) {
+            this.lastPage = lastPage;
         }
 
         public List<ListBean> getList() {
@@ -245,21 +245,24 @@ public class HotDetalisBean {
 
         public static class ListBean {
             /**
-             * id : 29
-             * dynamicAuthor : 化计划
-             * dynamicHeadPortrait : null
-             * dynamicContent : #克罗索尔岛17373747558488484
-             * createTime : 2019-11-28 11:04:23
-             * dynamicAddress :  恒大冰泉直销店(马甸东路)
-             * dynamicPicture :
-             * dynamicPraise : 0
+             * id : 78
+             * dynamicAuthor : 今天明天后天
+             * dynamicHeadPortrait : http://47.107.50.253:8080/webapps/uploadFile/image/1576738695337_69518021.jpg
+             * dynamicContent : 潜水
+             * createTime : 2019-12-20 15:31:12
+             * dynamicAddress : 北京市海淀区马甸东路17号靠近中国农业银行(马甸东路支行)
+             * dynamicPicture : http://47.107.50.253:8080/webapps/uploadFile/image/1576827072175_91376915.jpg,http://47.107.50.253:8080/webapps/uploadFile/image/1576827072274_38236025.jpg
+             * dynamicPraise : 4
              * dynamicSharenum : 0
-             * dynamicCommentnum : 0
-             * userId : 28
-             * topicId : 1
-             * topicName : 克罗索尔岛
+             * dynamicCommentnum : 2
+             * userId : 32
+             * topicId : 21
+             * topicName : 蜜月岛
              * delflag : 0
              * identificationPraise : 0
+             * width : null
+             * height : null
+             * userType : 1
              * identification : 0
              */
 
@@ -276,9 +279,11 @@ public class HotDetalisBean {
             private int userId;
             private int topicId;
             private String topicName;
-            private int userType;
             private int delflag;
             private int identificationPraise;
+            private Object width;
+            private Object height;
+            private int userType;
             private int identification;
 
             public int getId() {
@@ -401,12 +406,20 @@ public class HotDetalisBean {
                 this.identificationPraise = identificationPraise;
             }
 
-            public int getIdentification() {
-                return identification;
+            public Object getWidth() {
+                return width;
             }
 
-            public void setIdentification(int identification) {
-                this.identification = identification;
+            public void setWidth(Object width) {
+                this.width = width;
+            }
+
+            public Object getHeight() {
+                return height;
+            }
+
+            public void setHeight(Object height) {
+                this.height = height;
             }
 
             public int getUserType() {
@@ -415,6 +428,14 @@ public class HotDetalisBean {
 
             public void setUserType(int userType) {
                 this.userType = userType;
+            }
+
+            public int getIdentification() {
+                return identification;
+            }
+
+            public void setIdentification(int identification) {
+                this.identification = identification;
             }
         }
     }

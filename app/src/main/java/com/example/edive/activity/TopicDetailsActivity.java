@@ -28,12 +28,17 @@ import com.example.edive.frame.ApiConfig;
 import com.example.edive.frame.BaseMvpActivity;
 import com.example.edive.model.HomeModel;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 public class TopicDetailsActivity extends BaseMvpActivity<HomeModel> {
 
@@ -190,7 +195,7 @@ public class TopicDetailsActivity extends BaseMvpActivity<HomeModel> {
             case ApiConfig.NOTFOLLOWS:
                 NotFollowBean notFollowBean = (NotFollowBean) t[0];
                 if (notFollowBean.getCode() == 200) {
-                    showToast("取消关注");
+                    showToast("取消收藏");
                     mIvLike.setVisibility(View.GONE);
                     mIvNolike.setVisibility(View.VISIBLE);
                 }
@@ -206,8 +211,35 @@ public class TopicDetailsActivity extends BaseMvpActivity<HomeModel> {
             case R.id.iv_share:
                 break;
             case R.id.iv_like:
+                //收藏话题
+                int ids = data.get(0).getId();
+                MediaType types = MediaType.parse("application/json;charset=UTF-8");
+                JSONObject jsonObjects = new JSONObject();
+                try {
+                    jsonObjects.put("favoriteType", 6);
+                    jsonObjects.put("status", 2);
+                    jsonObjects.put("targetId", ids);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                String strings = jsonObjects.toString();
+                RequestBody bodys = RequestBody.create(types, strings);
+                mPresenter.getData(ApiConfig.NOTFOLLOWS,bodys);
                 break;
             case R.id.iv_nolike:
+                int id = data.get(0).getId();
+                MediaType type = MediaType.parse("application/json;charset=UTF-8");
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("favoriteType", 6);
+                    jsonObject.put("status", 1);
+                    jsonObject.put("targetId", id);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                String string = jsonObject.toString();
+                RequestBody body = RequestBody.create(type, string);
+                mPresenter.getData(ApiConfig.FOLLOWUSER,body);
                 break;
             case R.id.iv_back:
                 finish();

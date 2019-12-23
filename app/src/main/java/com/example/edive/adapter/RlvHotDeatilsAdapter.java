@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.edive.R;
 import com.example.edive.bean.HotDetalisBean;
+import com.example.edive.bean.NewsDynamicDeatilsBean;
+import com.example.edive.bean.TopicHotBean;
 import com.example.edive.design.RoundOrCircleImage;
 import com.sackcentury.shinebuttonlib.ShineButton;
 
@@ -25,7 +27,7 @@ import butterknife.ButterKnife;
 
 public class RlvHotDeatilsAdapter extends RecyclerView.Adapter<RlvHotDeatilsAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private final ArrayList<HotDetalisBean.DataBean.ListBean> list;
+    private final ArrayList<TopicHotBean.DataBean.ListBean> list;
     private int integer;
     private setonclick time;
     private setlikeonclick likes;
@@ -37,7 +39,7 @@ public class RlvHotDeatilsAdapter extends RecyclerView.Adapter<RlvHotDeatilsAdap
     private setonclicks times;
     private setonclickListent onclick;
 
-    public RlvHotDeatilsAdapter(FragmentActivity activity, ArrayList<HotDetalisBean.DataBean.ListBean> list, Integer integer) {
+    public RlvHotDeatilsAdapter(FragmentActivity activity, ArrayList<TopicHotBean.DataBean.ListBean> list, Integer integer) {
 
         this.activity = activity;
         this.list = list;

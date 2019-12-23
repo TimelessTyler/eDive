@@ -312,7 +312,7 @@ public class RegisterActivity extends BaseMvpActivity<LoginModel> {
                                 .build();
 
                         Request request = new Request.Builder()
-                                .url("http://192.168.0.246:8000/sso/saveFile")
+                                .url("http://47.107.50.253:8080/DmdMall/sso/saveFile")
                                 .post(body)
                                 .build();
 

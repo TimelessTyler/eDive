@@ -224,7 +224,7 @@ public class PersonalDataActivity extends BaseMvpActivity<PersonModel> implement
                     .build();
 
             Request request = new Request.Builder()
-                    .url("http://192.168.0.246:8000/uploadFile/saveFile")
+                    .url("http://47.107.50.253:8080/DmdMall/uploadFile/saveFile")
                     .addHeader("Authorization","Bearer " + BaseApplication.getInstance().Token)
                     .post(body)
                     .build();
@@ -352,7 +352,7 @@ public class PersonalDataActivity extends BaseMvpActivity<PersonModel> implement
                 //昵称
                 Intent intent = new Intent(PersonalDataActivity.this, UpdateNameActivity.class);
                 intent.putExtra("name", name);
-                startActivity(intent);
+                startActivityForResult(intent,100);
                 break;
             case R.id.rl_sex:
                 //性别
@@ -376,7 +376,9 @@ public class PersonalDataActivity extends BaseMvpActivity<PersonModel> implement
                 startActivity(intent1);
                 break;
         }
+
     }
+
     private void initPops() {
         View inflate1 = LayoutInflater.from(this).inflate(R.layout.layout_popo_person_photo, null);
         TextView tv_photo = inflate1.findViewById(R.id.tv_photo);
@@ -450,6 +452,10 @@ public class PersonalDataActivity extends BaseMvpActivity<PersonModel> implement
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         mTakephoto.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == 200) {
+            String name = data.getStringExtra("name");
+            mTvName.setText(name );
+        }
     }
 
     @Override
@@ -469,7 +475,7 @@ public class PersonalDataActivity extends BaseMvpActivity<PersonModel> implement
                     .build();
 
             Request request = new Request.Builder()
-                    .url("http://192.168.0.246:8000/uploadFile/saveFile")
+                    .url("http://47.107.50.253:8080/DmdMall/uploadFile/saveFile")
                     .addHeader("Authorization", "Bearer " + BaseApplication.getInstance().Token)
                     .post(body)
                     .build();

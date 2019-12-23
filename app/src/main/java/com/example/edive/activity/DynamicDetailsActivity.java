@@ -42,6 +42,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.PooledConnection;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.MediaType;
@@ -71,6 +73,8 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
     private ArrayList<AllCommentBean.DataBean.ListBean> commentList;
     private RlvMessagerPlMAdapter plMAdapter;
     private boolean isLastPage;
+    private int userType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +93,7 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
     @Override
     public void initView() {
         pos = getIntent().getExtras().getInt("pos");
+        userType = getIntent().getExtras().getInt("userType");
         final int pl = getIntent().getExtras().getInt("pl");
         if (pl == 1) {
             showSoftInputFromWindow(mEtText);
@@ -135,8 +140,10 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
             @Override
             public void setonclickListent(int pos) {
                 int userId = list.get(pos).getUserId();
+                int userType = list.get(pos).getUserType();
                 Intent intent = new Intent(DynamicDetailsActivity.this, UserPersonDestialsActivity.class);
                 intent.putExtra("id", userId);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
             }
         });
@@ -149,23 +156,28 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
         adapter.setlikeonclick(new RlvDynamicDetailsAdapter.setlikeonclick() {
             @Override
             public void setlikeonclick(int pos, View view) {
-                mPresenter.getData(ApiConfig.NEWSLIKE, pos);
+                int userId = list.get(pos).getId();
+                int userType = list.get(pos).getUserType();
+                mPresenter.getData(ApiConfig.NEWSLIKE, userId,userType);
             }
         });
         adapter.setnolikeonclick(new RlvDynamicDetailsAdapter.setnolikeonclick() {
             @Override
             public void setnolikeonclick(int pos, View view) {
-                mPresenter.getData(ApiConfig.NOTLIKE, pos);
+                int userId = list.get(pos).getId();
+                int userType = list.get(pos).getUserType();
+                mPresenter.getData(ApiConfig.NOTLIKE, userId,userType);
             }
         });
         adapter.setfollowonclick(new RlvDynamicDetailsAdapter.setfollowonclick() {
             @Override
             public void setfollowonclick(int targetid, int pos) {
                 int userId = list.get(pos).getUserId();
+                int userType = list.get(pos).getUserType();
                 MediaType type = MediaType.parse("application/json;charset=UTF-8");
                 JSONObject jsonObject = new JSONObject();
                 try {
-                    jsonObject.put("favoriteType", 1);
+                    jsonObject.put("favoriteType", userType);
                     jsonObject.put("status", 1);
                     jsonObject.put("targetId", userId);
                 } catch (JSONException e) {
@@ -181,10 +193,11 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
             @Override
             public void setnotfollowonclick(int targetid, int pos) {
                 int userId = list.get(pos).getUserId();
+                int userType = list.get(pos).getUserType();
                 MediaType type = MediaType.parse("application/json;charset=UTF-8");
                 JSONObject jsonObject = new JSONObject();
                 try {
-                    jsonObject.put("favoriteType", 1);
+                    jsonObject.put("favoriteType", userType);
                     jsonObject.put("status", 2);
                     jsonObject.put("targetId", userId);
                 } catch (JSONException e) {
@@ -240,7 +253,7 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
     @Override
     public void initData() {
         mPresenter.getData(ApiConfig.APLLCOMMENT, pagenum, pagesize, pos);
-        mPresenter.getData(ApiConfig.DYNAMICDEATILS_DATA_PL, pos);
+        mPresenter.getData(ApiConfig.DYNAMICDEATILS_DATA_PL, pos,userType);
     }
 
     @Override
@@ -301,7 +314,7 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
             case ApiConfig.FOLLOWUSER:
                 FollowBean followBean = (FollowBean) t[0];
                 if (followBean.getCode() == 200) {
-                    showToast(followBean.getMessage());
+                    showToast("关注成功");
 
                 } else if (followBean.getCode() == 500) {
                     showToast(followBean.getMessage());

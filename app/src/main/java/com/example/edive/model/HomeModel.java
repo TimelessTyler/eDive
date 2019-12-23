@@ -76,7 +76,8 @@ public class HomeModel implements ICommonModel {
                 break;
             case ApiConfig.DYNAMICDEATILS_DATA_PL:
                 int post = (int) t[0];
-                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getDynamicdatas(post),view,whichApi);
+                int userTypes = (int) t[1];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getDynamicdatas(post,userTypes),view,whichApi);
                 break;
             case ApiConfig.CONVERSEARCH_DATA:
                 String data = (String) t[0];
@@ -100,6 +101,23 @@ public class HomeModel implements ICommonModel {
             case ApiConfig.ADDDYNAMIC:
                 RequestBody requestBody = (RequestBody) t[0];
                 mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getAddDynamic(requestBody),view,whichApi);
+                break;
+            case ApiConfig.HOTDETALIS_DATAS:
+                int pnum = (int) t[0];
+                int psize = (int) t[1];
+                int pid = (int) t[2];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getHotDatasss(pnum,psize,pid),view,whichApi);
+                break;
+            case ApiConfig.SHOPPING_DIVING:
+                RequestBody ha = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getDiving(ha),view,whichApi);
+                break;
+            case ApiConfig.MYDYNAMICDETAILSS:
+                String userids = (String) t[0];
+                int pageNums = (int) t[1];
+                int pageSizes = (int) t[2];
+                int usertypr = (int) t[3];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getMyDynamicS(userids,pageNums,pageSizes,usertypr),view,whichApi);
                 break;
         }
     }

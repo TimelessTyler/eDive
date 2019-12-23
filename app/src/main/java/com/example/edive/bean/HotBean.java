@@ -280,6 +280,7 @@ public class HotBean {
             private Object topicId;
             private Object topicName;
             private Object delflag;
+            private int userType;
             private int identificationPraise;
             private int width;
             private int height;
@@ -427,6 +428,14 @@ public class HotBean {
 
             public void setIdentification(int identification) {
                 this.identification = identification;
+            }
+
+            public int getUserType() {
+                return userType;
+            }
+
+            public void setUserType(int userType) {
+                this.userType = userType;
             }
         }
     }

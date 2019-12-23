@@ -15,9 +15,10 @@ import com.example.edive.activity.DynamicDetailsActivity;
 import com.example.edive.activity.UserPersonDestialsActivity;
 import com.example.edive.adapter.RlvHotDeatilsAdapter;
 import com.example.edive.bean.FollowBean;
-import com.example.edive.bean.HotDetalisBean;
 import com.example.edive.bean.LikeBean;
+import com.example.edive.bean.NewsDynamicDeatilsBean;
 import com.example.edive.bean.NotFollowBean;
+import com.example.edive.bean.TopicHotBean;
 import com.example.edive.frame.ApiConfig;
 import com.example.edive.frame.BaseMvpFragment;
 import com.example.edive.model.HomeModel;
@@ -50,7 +51,7 @@ public class HotDetailsFragment extends BaseMvpFragment<HomeModel> {
     @BindView(R.id.smrefresh)
     SmartRefreshLayout mSmrefresh;
 
-    private ArrayList<HotDetalisBean.DataBean.ListBean> list;
+    private ArrayList<TopicHotBean.DataBean.ListBean> list;
     private RlvHotDeatilsAdapter adapter;
     private int num = 1;
     private int size = 10;
@@ -194,7 +195,7 @@ public class HotDetailsFragment extends BaseMvpFragment<HomeModel> {
 
     @Override
     public void initData() {
-        mPresenter.getData(ApiConfig.HOTDETALIS_DATA, num, size, pos);
+        mPresenter.getData(ApiConfig.HOTDETALIS_DATAS, num, size, pos);
     }
 
     @Override
@@ -210,12 +211,12 @@ public class HotDetailsFragment extends BaseMvpFragment<HomeModel> {
     @Override
     public void onResponse(int whichApi, Object[] t) {
         switch (whichApi) {
-            case ApiConfig.HOTDETALIS_DATA:
-                HotDetalisBean bean = (HotDetalisBean) t[0];
-                HotDetalisBean.DataBean data1 = bean.getData();
+            case ApiConfig.HOTDETALIS_DATAS:
+                TopicHotBean bean = (TopicHotBean) t[0];
+                TopicHotBean.DataBean data1 = bean.getData();
                 lastPage = data1.getLastPage();
                 isLastPage = data1.isIsLastPage();
-                List<HotDetalisBean.DataBean.ListBean> data = bean.getData().getList();
+                List<TopicHotBean.DataBean.ListBean> data = bean.getData().getList();
                 list.addAll(data);
                 adapter.notifyDataSetChanged();
                 break;

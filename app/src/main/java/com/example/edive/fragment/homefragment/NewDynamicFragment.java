@@ -81,7 +81,9 @@ public class NewDynamicFragment extends BaseMvpFragment<HomeModel> {
             public void setonclick(int pos) {
                 Intent intent = new Intent(getActivity(), DynamicDetailsActivity.class);
                 int id = list.get(pos).getId();
+                int userType = list.get(pos).getUserType();
                 intent.putExtra("pos", id);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
             }
         });

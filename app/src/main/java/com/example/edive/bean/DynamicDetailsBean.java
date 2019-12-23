@@ -70,6 +70,7 @@ public class DynamicDetailsBean {
         private int userId;
         private int topicId;
         private String topicName;
+        private int userType;
         private int delflag;
         private int identification;
         private int identificationPraise;
@@ -200,6 +201,14 @@ public class DynamicDetailsBean {
 
         public void setIdentification(int identification) {
             this.identification = identification;
+        }
+
+        public int getUserType() {
+            return userType;
+        }
+
+        public void setUserType(int userType) {
+            this.userType = userType;
         }
     }
 }

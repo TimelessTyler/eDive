@@ -312,6 +312,7 @@ public class NewDynamicBean implements Parcelable {
             private Object delflag;
             private int identificationPraise;
             private int width;
+            private int userType;
             private int height;
             private int identification;
 
@@ -457,6 +458,14 @@ public class NewDynamicBean implements Parcelable {
 
             public void setIdentification(int identification) {
                 this.identification = identification;
+            }
+
+            public int getUserType() {
+                return userType;
+            }
+
+            public void setUserType(int userType) {
+                this.userType = userType;
             }
         }
     }

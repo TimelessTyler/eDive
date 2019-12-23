@@ -1,5 +1,6 @@
 package com.example.edive.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -80,6 +81,10 @@ public class UpdateNameActivity extends BaseMvpActivity<PersonModel> {
                 UpdateCoachMessageBean updateCoachMessageBean = (UpdateCoachMessageBean) t[0];
                 if (updateCoachMessageBean.getCode() == 200) {
                     showToast(updateCoachMessageBean.getMessage());
+                    Intent intent = new Intent();
+                    String name = mTvName.getText().toString();
+                    intent.putExtra("name",name);
+                    setResult(200,intent);
                     finish();
                 }else {
                     showToast(updateCoachMessageBean.getMessage());

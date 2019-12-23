@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.example.edive.R;
 import com.example.edive.activity.DynamicDetailsActivity;
 import com.example.edive.bean.AllCommentBean;
+import com.example.edive.design.RoundImage;
 import com.example.edive.design.RoundOrCircleImage;
 
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class RlvMessagerPlMAdapter extends RecyclerView.Adapter<RlvMessagerPlMAd
 
     public class Viewholder extends RecyclerView.ViewHolder {
         @BindView(R.id.iv_photo)
-        RoundOrCircleImage mIvphoto;
+        RoundImage mIvphoto;
         @BindView(R.id.tv_pl_name)
         TextView mTvPlName;
         @BindView(R.id.tv_pl_text)

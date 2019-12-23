@@ -247,8 +247,6 @@ public class NewDynamicDetailsFragment extends BaseMvpFragment<HomeModel> {
                 LikeBean likeBean = (LikeBean) t[0];
                 if (likeBean.getCode() == 200) {
                     showToast("点赞成功");
-//                    adapter.notifyDataSetChanged();
-//                    mPresenter.getData(ApiConfig.NEWSDYNAMICDEATILS_DATA, pos,num,size);
                 }
                 break;
             case ApiConfig.NOTLIKE:

@@ -15,7 +15,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface MyServer {
-    String url = "http://192.168.0.246:8000/";
+    String url = "http://47.107.50.253:8080/DmdMall/";
 
     @POST("sso/login?")
     @FormUrlEncoded

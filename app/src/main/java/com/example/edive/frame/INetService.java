@@ -3,11 +3,13 @@ package com.example.edive.frame;
 
 
 import com.example.edive.bean.AddDynamicBean;
+import com.example.edive.bean.AlbumBean;
 import com.example.edive.bean.AllCommentBean;
 import com.example.edive.bean.BannerInfo;
 import com.example.edive.bean.CommentBean;
 import com.example.edive.bean.ConversationBean;
 import com.example.edive.bean.DelectMydynamicBean;
+import com.example.edive.bean.DivingBean;
 import com.example.edive.bean.DynamicDetailsBean;
 import com.example.edive.bean.FollowBean;
 import com.example.edive.bean.HotBean;
@@ -22,7 +24,9 @@ import com.example.edive.bean.PersonalMessagerBean;
 import com.example.edive.bean.SearchDynamicBean;
 import com.example.edive.bean.TopicBean;
 import com.example.edive.bean.TopicByIdBean;
+import com.example.edive.bean.TopicHotBean;
 import com.example.edive.bean.UpdateCoachMessageBean;
+import com.example.edive.bean.UserDatilasBean;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
@@ -51,7 +55,7 @@ public interface INetService {
     @POST("umsFavorites/attentionStatus/update?")
     Observable<NotFollowBean> getNotfollows(@Body RequestBody bodyfollow);
     @GET("topic/selectTopicByDynamicHeat")
-    Observable<HotDetalisBean> getHotDetalisData(@Query("pageNum") int num, @Query("pageSize") int size, @Query("id") int idss);
+    Observable<NewsDynamicDeatilsBean> getHotDetalisData(@Query("pageNum") int num, @Query("pageSize") int size, @Query("id") int idss);
     @GET("dynamic/updateDynamicLikePraise?")
     Observable<LikeBean> getLike(@Query("id") int like, @Query("userType") int userType);
     @GET("dynamic/updateDynamicCancelPraise?")
@@ -63,7 +67,7 @@ public interface INetService {
     @POST("comment/addComment?")
     Observable<CommentBean> getComment(@Body RequestBody bodys);
     @GET("dynamic/selectDynamicById?")
-    Observable<DynamicDetailsBean> getDynamicdatas(@Query("id") int post);
+    Observable<DynamicDetailsBean> getDynamicdatas(@Query("id") int post,@Query("userType") int userTypes);
     @GET("topic/selectTopicName")
     Observable<SearchDynamicBean> getSearchDynaic(@Query("topicName") String data);
     @GET("topic/selectTopicPage?")
@@ -76,4 +80,14 @@ public interface INetService {
     Observable<MyDynamicBean> getMyDynamic(@Query("userId") String userid, @Query("pageNum") int nums, @Query("pageSize") int sizes);
     @POST("dynamic/addDynamic")
     Observable<AddDynamicBean> getAddDynamic(@Body RequestBody requestBody);
+    @GET("topic/selectTopicByDynamicHeat")
+    Observable<TopicHotBean> getHotDatasss(@Query("pageNum") int pnum,@Query("pageSize") int psize,@Query("id") int pid);
+    @GET("dynamic/queryUserDetails")
+    Observable<UserDatilasBean> getUserPerson(@Query("userId") int userids, @Query("userType") int userType);
+    @GET("dynamic/selectDynamicAlbumTimeBean")
+    Observable<AlbumBean> getAlbum(@Query("userId") int useridperson, @Query("pageNum") int personnum, @Query("pageSize") int personsize, @Query("userType") int userTypes);
+    @POST("pms/divingProductList/find")
+    Observable<DivingBean> getDiving(@Body RequestBody ha);
+    @GET("dynamic/selectDynamicPage")
+    Observable<MyDynamicBean> getMyDynamicS(@Query("userId") String userid,@Query("pageNum") int pageNum,@Query("pageSize") int pageSize,@Query("userType") int usertype);
 }

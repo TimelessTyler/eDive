@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.example.edive.R;
 import com.example.edive.activity.ShowPhotoActivity;
+import com.example.edive.design.GlideRoundTransform;
 
 import java.util.ArrayList;
 
@@ -33,7 +35,7 @@ public class RlvTopicChinalAdapter extends RecyclerView.Adapter<RlvTopicChinalAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        Glide.with(activity).load(list.get(i)).placeholder(R.mipmap.bg).into(viewHolder.mImageView);
+        Glide.with(activity).load(list.get(i)).placeholder(R.mipmap.bg).error(R.mipmap.bg).into(viewHolder.mImageView);
         viewHolder.mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -25,4 +25,9 @@ public class ApiConfig {
     public static final int DELECTMYDYNAMIC = 21;
     public static final int MYDYNAMICDETAILS = 22;
     public static final int ADDDYNAMIC = 23;
+    public static final int HOTDETALIS_DATAS = 24;
+    public static final int USERDATALIS = 25;
+    public static final int LABUMUSERPERSONAL = 26;
+    public static final int SHOPPING_DIVING = 27;
+    public static final int MYDYNAMICDETAILSS = 28;
 }
