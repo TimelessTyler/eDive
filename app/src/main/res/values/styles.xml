@@ -70,4 +70,38 @@
         <item name="android:background">#33ffffff</item>
         <item name="android:textColor">@android:color/holo_blue_light</item>
     </style>
+
+    <style name="diving_layoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/dp_20</item>
+        <item name="android:layout_marginRight">@dimen/dp_20</item>
+        <item name="android:layout_marginTop">@dimen/dp_10</item>
+        <item name="android:paddingTop">@dimen/dp_13</item>
+        <item name="android:paddingBottom">@dimen/dp_25</item>
+        <item name="android:paddingLeft">@dimen/dp_20</item>
+        <item name="android:paddingRight">@dimen/dp_20</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/peronal_bg</item>
+    </style>
+
+    <style name="diving_textview">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FF0066FF</item>
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
+
+    <style name="Diving_edittext">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_100</item>
+        <item name="android:background">#FF021F43</item>
+        <item name="android:padding">@dimen/dp_9</item>
+        <item name="android:maxLength">300</item>
+        <item name="android:layout_marginTop">@dimen/dp_12</item>
+        <item name="android:textColor">@color/c_ffffff</item>
+        <item name="android:textColorHint">@color/hints</item>
+        <item name="android:gravity">top</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
 </resources>

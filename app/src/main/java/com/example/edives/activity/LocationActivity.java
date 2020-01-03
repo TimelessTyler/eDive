@@ -199,7 +199,6 @@ public class LocationActivity extends BaseMvpActivity<HomeModel> implements AMap
             LocationInfo info = new LocationInfo();
             info.setAddress(snippet);
             LatLonPoint point = poi.getLatLonPoint();
-
             info.setLatitude(point.getLatitude());
             info.setLonTitude(point.getLongitude());
             list.add(info);

@@ -89,7 +89,6 @@ public class HomeActivity extends BaseActivity {
             case R.id.rb_club:
                 switchfragment(1);
                 break;
-
             case R.id.rb_shopping:
                 switchfragment(2);
                 break;
