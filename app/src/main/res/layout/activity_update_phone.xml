@@ -7,7 +7,7 @@
     android:background="@color/Setting_bg"
     android:layout_height="match_parent"
     tools:context=".activity.UpdatePhoneActivity">
-    <com.example.edive.design.CommonTitle
+    <com.example.edives.design.CommonTitle
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:canBack="true"

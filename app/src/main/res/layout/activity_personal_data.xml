@@ -7,7 +7,7 @@
     android:background="@color/Setting_bg"
     android:layout_height="match_parent"
     tools:context=".activity.PersonalDataActivity">
-    <com.example.edive.design.CommonTitle
+    <com.example.edives.design.CommonTitle
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleText="个人资料"
@@ -51,7 +51,7 @@
                     android:layout_marginRight="@dimen/dp_20"
                     android:src="@mipmap/icon_more" />
 
-                <com.example.edive.design.RoundOrCircleImage
+                <com.example.edives.design.RoundOrCircleImage
                     android:id="@+id/iv_photos"
                     android:layout_width="@dimen/dp_44"
                     android:layout_height="@dimen/dp_44"

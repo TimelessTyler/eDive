@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:background="@color/Setting_bg"
     tools:context=".activity.RegisterActivity">
-    <com.example.edive.design.CommonTitle
+    <com.example.edives.design.CommonTitle
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleText="注册账号"

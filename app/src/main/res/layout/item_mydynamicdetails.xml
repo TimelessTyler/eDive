@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.example.edive.design.RoundOrCircleImage
+    <com.example.edives.design.RoundOrCircleImage
         android:id="@+id/iv_photo"
         android:layout_width="@dimen/dp_33"
         android:layout_height="@dimen/dp_33"

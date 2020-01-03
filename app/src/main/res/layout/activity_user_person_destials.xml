@@ -41,7 +41,7 @@
                 android:background="@drawable/persondestials_bg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <com.example.edive.design.RoundImage
+                <com.example.edives.design.RoundImage
                     android:id="@+id/iv_show"
                     android:layout_width="@dimen/dp_40"
                     android:layout_height="@dimen/dp_40"
