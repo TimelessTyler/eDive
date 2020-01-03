@@ -15,14 +15,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< HEAD:app/src/main/java/com/example/edives/activity/DivingTourActivity.java
+
 import com.example.edives.R;
-=======
+
 import com.bigkoo.pickerview.TimePickerView;
-import com.example.edive.R;
-import com.example.edive.frame.BaseMvpActivity;
-import com.example.edive.model.HomeModel;
->>>>>>> ea77401b6ba423d42f46dbccc2e52ed701c9af46:app/src/main/java/com/example/edive/activity/DivingTourActivity.java
+import com.example.edives.frame.BaseMvpActivity;
+import com.example.edives.model.HomeModel;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

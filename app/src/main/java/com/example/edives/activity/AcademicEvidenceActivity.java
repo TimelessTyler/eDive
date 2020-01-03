@@ -22,20 +22,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< HEAD:app/src/main/java/com/example/edives/activity/AcademicEvidenceActivity.java
 import com.example.edives.R;
-=======
 import com.bigkoo.pickerview.TimePickerView;
-import com.example.edive.R;
-import com.example.edive.adapter.QuestionFeedbackAdapter;
-import com.example.edive.bean.UpLoadBean;
-import com.example.edive.frame.ApiConfig;
-import com.example.edive.frame.BaseApplication;
-import com.example.edive.frame.BaseMvpActivity;
-import com.example.edive.local_utils.MediaLoader;
-import com.example.edive.local_utils.StringUtils;
-import com.example.edive.model.HomeModel;
-import com.example.edive.utils.SharedPrefrenceUtils;
+import com.example.edives.adapter.QuestionFeedbackAdapter;
+import com.example.edives.bean.UpLoadBean;
+import com.example.edives.frame.ApiConfig;
+import com.example.edives.frame.BaseApplication;
+import com.example.edives.frame.BaseMvpActivity;
+import com.example.edives.local_utils.MediaLoader;
+import com.example.edives.local_utils.SharedPrefrenceUtils;
+import com.example.edives.model.HomeModel;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.hjq.permissions.OnPermission;
@@ -118,7 +114,6 @@ public class AcademicEvidenceActivity extends BaseMvpActivity<HomeModel> {
     private int topicid;
     private ArrayList<String> list;
     private ArrayList<String> PicList;
->>>>>>> ea77401b6ba423d42f46dbccc2e52ed701c9af46:app/src/main/java/com/example/edive/activity/AcademicEvidenceActivity.java
 
 
     @Override

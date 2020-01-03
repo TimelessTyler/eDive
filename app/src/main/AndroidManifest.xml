@@ -49,9 +49,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme"
-        android:networkSecurityConfig="@xml/network_security_config"
         tools:ignore="GoogleAppIndexingWarning"
-<<<<<<< HEAD
         tools:replace="android:theme">
         <activity android:name="com.example.edives.activity.LocationActivity"></activity>
         <activity android:name="com.example.edives.activity.ChooesConversationActivity" />
@@ -78,35 +76,6 @@
         <activity android:name="com.example.edives.activity.RegisterActivity" />
         <activity android:name="com.example.edives.activity.VerificationLoginActivity" />
         <activity android:name="com.example.edives.activity.SplashActivity">
-=======
-        tools:replace="android:theme"
-        tools:targetApi="n">
-        <activity android:name=".activity.LocationActivity"></activity>
-        <activity android:name=".activity.ChooesConversationActivity" />
-        <activity android:name=".activity.MyDynamicDetailsPersonActivity" />
-        <activity android:name=".activity.UserPersonDestialsActivity" />
-        <activity android:name=".activity.ShowPhotoActivity" />
-        <activity android:name=".activity.DynamicDetailsActivity" />
-        <activity android:name=".activity.TopicDetailsActivity" />
-        <activity android:name=".activity.UpdateMyTextActivity" />
-        <activity android:name=".activity.UpdateNameActivity" />
-        <activity android:name=".activity.UpdatePhoneActivity" />
-        <activity android:name=".activity.PersonalDataActivity" />
-        <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.DivingTourActivity" />
-        <activity android:name=".activity.AcademicEvidenceActivity" />
-        <activity android:name=".activity.PublishVideoActivity" />
-        <activity android:name=".activity.PublishDynamicActivity" />
-        <activity android:name=".activity.DiveLogActivity" />
-        <activity android:name=".activity.ConversationActivity" />
-        <activity android:name=".activity.IntegralActivity" />
-        <activity android:name=".activity.RestorationActivity" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.FindPasswordActivity" />
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.VerificationLoginActivity" />
-        <activity android:name=".activity.SplashActivity">
->>>>>>> ea77401b6ba423d42f46dbccc2e52ed701c9af46
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
