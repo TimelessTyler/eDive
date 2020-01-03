@@ -30,8 +30,10 @@
                     style="@style/diving_textview"
                     android:text="基本信息"/>
                 <RelativeLayout
+                    android:id="@+id/rl_Choose_Address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusableInTouchMode="true"
                     android:layout_marginTop="@dimen/dp_25">
                     <TextView
                         android:id="@+id/divig_address"
@@ -39,7 +41,7 @@
                         android:layout_height="wrap_content"
                         android:text="潜水地点"
                         android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/sp_13"
+                        android:textSize="@dimen/sp_12"
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -47,8 +49,8 @@
                         android:layout_toRightOf="@+id/divig_address"
                         android:layout_marginLeft="@dimen/dp_22"
                         android:text="请选择地点"
-                        android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/sp_13"
+                        android:textColor="@color/hints"
+                        android:textSize="@dimen/sp_12"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -74,16 +76,18 @@
                         android:layout_height="wrap_content"
                         android:text="标题内容"
                         android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/sp_13"
+                        android:textSize="@dimen/sp_12"
                         />
                     <EditText
+                        android:id="@+id/et_Diving_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_22"
-                        android:text="快来起个吸引人的标题吧..."
+                        android:hint="快来起个吸引人的标题吧..."
+                        android:textColor="@color/c_ffffff"
                         android:background="@null"
-                        android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/dp_13"
+                        android:textColorHint="@color/hint"
+                        android:textSize="@dimen/dp_12"
                         />
                 </LinearLayout>
                 <View
@@ -100,18 +104,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="价格"
+                        android:text="价格        "
                         android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/sp_13"
+                        android:textSize="@dimen/sp_12"
                         />
                     <EditText
+                        android:id="@+id/et_Diving_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_22"
-                        android:text="        请输入学证价格"
+                        android:hint="请输入学证价格"
+                        android:textColor="@color/c_ffffff"
                         android:background="@null"
-                        android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/dp_13"
+                        android:textColorHint="@color/hints"
+                        android:textSize="@dimen/dp_12"
                         />
                 </LinearLayout>
                 <View
@@ -127,18 +133,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="时间"
+                        android:text="时间        "
                         android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/sp_13"
+                        android:textSize="@dimen/sp_12"
                         />
                     <EditText
+                        android:id="@+id/et_Diving_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_22"
-                        android:text="        请输入时间，例：3天2晚"
+                        android:textColor="@color/c_ffffff"
+                        android:hint="请输入时间，例：3天2晚"
                         android:background="@null"
-                        android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/dp_13"
+                        android:textColorHint="@color/hints"
+                        android:textSize="@dimen/dp_12"
                         />
                 </LinearLayout>
 
@@ -161,7 +169,7 @@
                         android:text="是否有时间限制"
                         android:textColor="@color/c_ffffff"
                         android:layout_gravity="center"
-                        android:textSize="@dimen/sp_13" />
+                        android:textSize="@dimen/sp_12" />
                     <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_30"
@@ -171,6 +179,7 @@
                         >
 
                         <RadioButton
+                            android:id="@+id/rb_Time_limitYes"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/dp_22"
                             android:layout_weight="1"
@@ -180,9 +189,10 @@
                             android:checked="true"
                             android:text="是"
                             android:textColor="@drawable/font_select"
-                            android:textSize="@dimen/sp_13" />
+                            android:textSize="@dimen/sp_12" />
 
                         <RadioButton
+                            android:id="@+id/rb_Time_limitNo"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/dp_22"
                             android:layout_weight="1"
@@ -191,7 +201,7 @@
                             android:background="@drawable/select_right_btn"
                             android:button="@null"
                             android:textColor="@drawable/font_select"
-                            android:textSize="@dimen/sp_13"/>
+                            android:textSize="@dimen/sp_12"/>
                     </RadioGroup>
                 </LinearLayout>
                 <View
@@ -204,34 +214,45 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_15">
                     <TextView
-                        android:id="@+id/tv_StartTime"
+                        android:id="@+id/tv_StartEndTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="起止时间"
                         android:layout_centerVertical="true"
                         android:textColor="#ffffffff"
-                        android:textSize="@dimen/sp_13" />
+                        android:textSize="@dimen/sp_12" />
 
                     <TextView
+                        android:id="@+id/tv_StartTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/dp_10"
-                        android:paddingBottom="@dimen/dp_10"
+                        android:paddingTop="@dimen/dp_9"
+                        android:paddingBottom="@dimen/dp_9"
                         android:paddingLeft="@dimen/dp_5"
                         android:paddingRight="@dimen/dp_5"
                         android:gravity="center"
                         android:layout_marginLeft="@dimen/dp_15"
-                        android:layout_toRightOf="@+id/tv_StartTime"
+                        android:layout_toRightOf="@+id/tv_StartEndTime"
                         android:textColor="@color/c_ffffff"
                         android:background="@drawable/shape_gradual"
                         android:text="2019-10-20 14:20"
                         android:textSize="@dimen/sp_12">
                     </TextView>
+
+                    <View
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_1"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tv_StartTime"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:background="#FF0066FF" />
+
                     <TextView
+                        android:id="@+id/tv_EndTime"
                         android:layout_width="@dimen/dp_100"
                         android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/dp_10"
-                        android:paddingBottom="@dimen/dp_10"
+                        android:paddingTop="@dimen/dp_9"
+                        android:paddingBottom="@dimen/dp_9"
                         android:paddingLeft="@dimen/dp_5"
                         android:paddingRight="@dimen/dp_5"
                         android:textColor="@color/c_ffffff"
@@ -250,8 +271,10 @@
                     android:layout_height="@dimen/dp_0_5"
                     android:background="@color/hint_oeder" />
                 <RelativeLayout
+                    android:id="@+id/rl_MostPeople"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusableInTouchMode="true"
                     android:layout_marginTop="@dimen/dp_15">
                     <TextView
                         android:id="@+id/most_people"
@@ -259,7 +282,7 @@
                         android:layout_height="wrap_content"
                         android:text="最大人数"
                         android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/sp_13"
+                        android:textSize="@dimen/sp_12"
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -268,7 +291,7 @@
                         android:layout_marginLeft="@dimen/dp_22"
                         android:text="不限"
                         android:textColor="@color/albumFontLight"
-                        android:textSize="@dimen/sp_13"
+                        android:textSize="@dimen/sp_12"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -291,33 +314,35 @@
                     android:layout_marginTop="@dimen/sp_25"
                     android:text="上传图片（只支持jpg格式)"
                     android:textColor="#ffffffff"
-                    android:textSize="@dimen/sp_13" />
+                    android:textSize="@dimen/sp_12" />
 
-                <RelativeLayout
-                    android:layout_marginBottom="@dimen/dp_15"
-                    android:layout_marginTop="@dimen/dp_25"
-                    android:layout_width="@dimen/dp_65"
-                    android:layout_height="@dimen/dp_65">
-                    <TextView
-                        android:id="@+id/tv_ss"
-                        android:layout_width="wrap_content"
-                        android:layout_marginTop="@dimen/dp_45"
-                        android:layout_height="wrap_content"
-                        android:text="上传照片"
-                        android:textColor="@color/white"
-                        android:layout_centerHorizontal="true"
-                        />
-                    <ImageView
-                        android:id="@+id/iv_addphoto"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/icon_sczp"
-                        />
-                </RelativeLayout>
-                <!--            <android.support.v7.widget.RecyclerView-->
-                <!--                android:id="@+id/rec"-->
-                <!--                android:layout_width="match_parent"-->
-                <!--                android:layout_height="wrap_content"/>-->
+<!--                <RelativeLayout-->
+<!--                    android:layout_marginBottom="@dimen/dp_15"-->
+<!--                    android:layout_marginTop="@dimen/dp_25"-->
+<!--                    android:layout_width="@dimen/dp_65"-->
+<!--                    android:layout_height="@dimen/dp_65">-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_ss"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/dp_45"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="上传照片"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:layout_centerHorizontal="true"-->
+<!--                        />-->
+<!--                    <ImageView-->
+<!--                        android:id="@+id/iv_addphoto"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@mipmap/icon_sczp"-->
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/rec_photo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp_25"/>
+<!--                        />-->
+<!--                </RelativeLayout>-->
+
 
             </LinearLayout>
             <LinearLayout
@@ -331,9 +356,10 @@
                     android:text="费用包含"
                     android:layout_marginTop="@dimen/dp_12"
                     android:textColor="@color/albumFontLight"
-                    android:textSize="@dimen/sp_14"/>
+                    android:textSize="@dimen/sp_13"/>
 
                 <EditText
+                    android:id="@+id/et_Cost_includes"
                     style="@style/Diving_edittext"
                     android:hint="建议填写内容用序号来表示..."
                     />
@@ -344,9 +370,10 @@
                     android:layout_marginTop="@dimen/dp_12"
                     android:layout_marginBottom="@dimen/dp_12"
                     android:textColor="@color/c_ffffff"
-                    android:textSize="@dimen/sp_14"/>
+                    android:textSize="@dimen/sp_13"/>
 
                 <EditText
+                    android:id="@+id/et_Nocost_contain"
                     style="@style/Diving_edittext"
                     android:hint="建议填写内容用序号来表示..."
                     />
@@ -359,6 +386,7 @@
                     android:text="报名须知"
                     android:layout_marginBottom="@dimen/dp_16"/>
                 <EditText
+                    android:id="@+id/et_ApplicationNotes"
                     style="@style/Diving_edittext"
                     android:hint="请输入报名须知"
                     />
@@ -370,6 +398,7 @@
                     android:text="潜点介绍"
                     android:layout_marginBottom="@dimen/dp_16"/>
                 <EditText
+                    android:id="@+id/et_Diving_location_introduction"
                     style="@style/Diving_edittext"
                     android:hint="请输入潜点介绍"
                     />
@@ -389,7 +418,7 @@
                         android:layout_centerVertical="true"
                         android:text="第一天"
                         android:textColor="@color/c_ffffff"
-                        android:textSize="@dimen/sp_14"
+                        android:textSize="@dimen/sp_13"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -417,7 +446,7 @@
                         android:layout_centerVertical="true"
                         android:text="第二天"
                         android:textColor="@color/c_ffffff"
-                        android:textSize="@dimen/sp_14"
+                        android:textSize="@dimen/sp_13"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
@@ -451,7 +480,7 @@
                 android:layout_marginRight="@dimen/dp_20"
                 android:background="@drawable/btn_publish"
                 android:text="发布"
-                android:textSize="@dimen/sp_19"
+                android:textSize="@dimen/sp_18"
                 android:textColor="@color/c_ffffff">
 
             </Button>

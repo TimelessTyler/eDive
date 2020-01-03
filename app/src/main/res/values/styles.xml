@@ -89,7 +89,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#FF0066FF</item>
-        <item name="android:textSize">@dimen/sp_15</item>
+        <item name="android:textSize">@dimen/sp_13</item>
     </style>
 
     <style name="Diving_edittext">

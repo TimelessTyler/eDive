@@ -155,6 +155,7 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
     @Override
     public void onError(int whichApi, Throwable e) {
 
+
     }
 
     @Override
@@ -236,6 +237,7 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
                     .post(body)
                     .build();
 
+
             Call call = okHttpClient.newCall(request);
 
             call.enqueue(new Callback() {
@@ -261,7 +263,7 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
                                     String data = upLoadBean.getData();
                                     PicList.add(data);
                                     if (PicList.size() == list.size()) {
-//                                                String datas = ArrayListToString(PicList);
+//                                      String datas = ArrayListToString(PicList);
                                         String join = StringUtils.join(PicList, ",");
                                         String nickname = mApplication.nickname;
                                         String content = mEtText.getText().toString();
@@ -296,7 +298,6 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
                             } else {
                                 Toast.makeText(PublishDynamicActivity.this, "错误", Toast.LENGTH_SHORT).show();
                             }
-
 
                         }
                     });

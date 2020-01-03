@@ -229,6 +229,8 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
                     String icon = SharedPrefrenceUtils.getString(DynamicDetailsActivity.this, NormalConfig.ICON);
                     String name = SharedPrefrenceUtils.getString(DynamicDetailsActivity.this, NormalConfig.NICKNAME);
                     String id = SharedPrefrenceUtils.getString(DynamicDetailsActivity.this, NormalConfig.USER_PHOTO);
+                    SharedPrefrenceUtils.getString(DynamicDetailsActivity.this,NormalConfig.log1);
+
                     MediaType type = MediaType.parse("application/json;charset=UTF-8");
                     JSONObject jsonObject = new JSONObject();
                     try {

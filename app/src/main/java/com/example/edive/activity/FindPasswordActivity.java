@@ -3,6 +3,7 @@ package com.example.edive.activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -101,7 +102,7 @@ public class FindPasswordActivity extends BaseMvpActivity<LoginModel> {
 
     @Override
     public void onError(int whichApi, Throwable e) {
-
+        Log.println(22,"333","4444");
     }
 
     @Override

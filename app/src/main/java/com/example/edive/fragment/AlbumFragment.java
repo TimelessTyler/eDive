@@ -19,6 +19,7 @@ import com.example.edive.frame.ApiConfig;
 import com.example.edive.frame.BaseMvpFragment;
 import com.example.edive.model.PersonModel;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.yanzhenjie.album.AlbumConfig;
 
 import java.util.ArrayList;
 import java.util.List;
