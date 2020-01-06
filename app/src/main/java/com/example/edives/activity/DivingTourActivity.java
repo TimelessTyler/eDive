@@ -22,7 +22,6 @@ import com.bigkoo.pickerview.TimePickerView;
 import com.example.edives.frame.BaseMvpActivity;
 import com.example.edives.model.HomeModel;
 
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -84,7 +83,6 @@ public class DivingTourActivity extends BaseMvpActivity<HomeModel> {
 
     @Override
     public void initView() {
-
         list = new ArrayList<>();
     }
 
