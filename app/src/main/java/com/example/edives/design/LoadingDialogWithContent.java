@@ -36,6 +36,7 @@ public class LoadingDialogWithContent extends Dialog {
         mTvContent = findViewById(R.id.tv_content);
 //        FontUtil.replaceFont(mTvContent,"fonts/RobotoCondensed-Regular.ttf");
         mTvContent.setText(mContent);
+        setCanceledOnTouchOutside(false);
     }
 
     @Override

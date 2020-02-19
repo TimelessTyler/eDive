@@ -7,9 +7,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.edives.R;
@@ -29,6 +31,12 @@ public class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mDialog = new LoadingDialogWithContent(getActivity(), getString(R.string.loading));
+        WindowManager m = getActivity().getWindowManager();
+        Display d = m.getDefaultDisplay();  //为获取屏幕宽、高
+        android.view.WindowManager.LayoutParams p = mDialog.getWindow().getAttributes();  //获取对话框当前的参数值
+        p.height = (int) (d.getHeight() * 0.3);   //高度设置为屏幕的0.3
+        p.width = d.getWidth();    //宽度设置为全屏
+        mDialog.getWindow().setAttributes(p);     //设置生效
         return super.onCreateView(inflater, container, savedInstanceState);
     }
     public void showToast(String content) {

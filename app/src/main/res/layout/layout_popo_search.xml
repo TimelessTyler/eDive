@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_5"
+    android:background="@color/findpassword_bg"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_dynamic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_18"
+        android:text="动态"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="@color/hint_oeder"/>
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/tv_diving"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:text="潜水"
+        android:gravity="center"
+        android:textSize="@dimen/sp_18"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="@color/hint_oeder"/>
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/tv_commodity"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/sp_18"
+        android:text="学证"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="@color/hint_oeder"/>
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/tv_conversation"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:text="话题"
+        android:gravity="center"
+        android:textSize="@dimen/sp_18"
+        />
+
+</LinearLayout>

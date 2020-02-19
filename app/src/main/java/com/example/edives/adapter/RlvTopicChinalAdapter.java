@@ -33,7 +33,7 @@ public class RlvTopicChinalAdapter extends RecyclerView.Adapter<RlvTopicChinalAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        Glide.with(activity).load(list.get(i)).placeholder(R.mipmap.bg).error(R.mipmap.bg).into(viewHolder.mImageView);
+        Glide.with(activity).load(list.get(i)).placeholder(R.mipmap.bg).into(viewHolder.mImageView);
         viewHolder.mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

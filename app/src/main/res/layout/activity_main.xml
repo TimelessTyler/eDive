@@ -85,7 +85,6 @@
             android:textSize="@dimen/sp_14"
             android:maxLines="1"
             android:hint="@string/et_phone"
-            android:textColor="@color/wechatLogin"
             android:textColorHint="@color/wechatLogin"
             />
     </LinearLayout>
@@ -120,7 +119,6 @@
             android:password="true"
             android:textStyle="normal"
             android:hint="@string/et_password"
-            android:textColor="@color/wechatLogin"
             android:textColorHint="@color/wechatLogin"
             />
     </LinearLayout>

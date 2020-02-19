@@ -11,7 +11,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.edives.R;
+import com.example.edives.activity.AttentionActivity;
 import com.example.edives.activity.MyDynamicDetailsPersonActivity;
+import com.example.edives.activity.MyOrder;
+import com.example.edives.activity.MyauditActivity;
+import com.example.edives.activity.MytraineeActivity;
 import com.example.edives.activity.PersonalDataActivity;
 import com.example.edives.activity.SettingActivity;
 import com.example.edives.bean.PersonalMessagerBean;
@@ -43,6 +47,8 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
     TextView mTvStudentNum;
     @BindView(R.id.tv_yifabu)
     TextView mTvYifabu;
+    @BindView(R.id.tv_guanz)
+    TextView mTvGuanz;
     @BindView(R.id.iv_not)
     ImageView mIvNot;
     @BindView(R.id.tv_like_num)
@@ -85,6 +91,7 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
 
     @Override
     public void initData() {
+        showLoadingDialog();
         mPresenter.getData(ApiConfig.PERSONALMESSAGER);
     }
 
@@ -100,6 +107,7 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
 
     @Override
     public void onResponse(int whichApi, Object[] t) {
+        hideLoadingDialog();
         switch (whichApi){
             case ApiConfig.PERSONALMESSAGER:
                 PersonalMessagerBean personalMessagerBean = (PersonalMessagerBean) t[0];
@@ -126,7 +134,7 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
     }
 
 
-    @OnClick({R.id.iv_setting, R.id.iv_show, R.id.tv_name, R.id.ll_coachgral, R.id.tv_xueyuan, R.id.tv_student_num, R.id.tv_like_num, R.id.tv_fb_num, R.id.rl_myorder, R.id.rl_myshenghe, R.id.rl_mydynamic, R.id.rl_mywallet, R.id.rl_myclub})
+    @OnClick({R.id.iv_setting,R.id.tv_guanz, R.id.iv_show, R.id.tv_name, R.id.ll_coachgral, R.id.tv_xueyuan, R.id.tv_student_num, R.id.tv_like_num, R.id.tv_fb_num, R.id.rl_myorder, R.id.rl_myshenghe, R.id.rl_mydynamic, R.id.rl_mywallet, R.id.rl_myclub})
     public void onClick(View v) {
         switch (v.getId()) {
             default:
@@ -141,29 +149,39 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
                 break;
             case R.id.tv_name:
                 //名称
+                startActivity(new Intent(getActivity(), PersonalDataActivity.class));
                 break;
             case R.id.ll_coachgral:
                 //教练等级
+
                 break;
             case R.id.tv_xueyuan:
                 //
+                startActivity(new Intent(getActivity(), MytraineeActivity.class));
                 break;
             case R.id.tv_student_num:
                 //学员数
-
+                startActivity(new Intent(getActivity(), MytraineeActivity.class));
+                break;
+            case R.id.tv_guanz:
+                //关注
+                startActivity(new Intent(getActivity(), AttentionActivity.class));
                 break;
             case R.id.tv_like_num:
                 //关注
-
+                startActivity(new Intent(getActivity(), AttentionActivity.class));
                 break;
             case R.id.tv_fb_num:
                 //发布
+
                 break;
             case R.id.rl_myorder:
                 //订单
+                startActivity(new Intent(getActivity(), MyOrder.class));
                 break;
             case R.id.rl_myshenghe:
                 //审核
+                startActivity(new Intent(getActivity(), MyauditActivity.class));
                 break;
             case R.id.rl_mydynamic:
                 //动态
@@ -171,6 +189,7 @@ public class PersonalFragment extends BaseMvpFragment<PersonModel> {
                 break;
             case R.id.rl_mywallet:
                 //钱包
+
                 break;
             case R.id.rl_myclub:
                 //俱乐部

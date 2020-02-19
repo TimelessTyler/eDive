@@ -119,6 +119,91 @@ public class HomeModel implements ICommonModel {
                 int usertypr = (int) t[3];
                 mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getMyDynamicS(userids,pageNums,pageSizes,usertypr),view,whichApi);
                 break;
+            case ApiConfig.INTEGRAL_DATA:
+                int pagenumi = (int) t[0];
+                int pagesizei = (int) t[1];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getFuDatass(pagenumi,pagesizei), view, whichApi);
+                break;
+            case ApiConfig.INTERRAL_DUIHUAN:
+                int giftid = (int) t[0];
+                String siz = (String) t[1];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getIntegralGift(giftid,siz),view,whichApi);
+                break;
+            case ApiConfig.INTEGRALDEATLIS_DATA:
+                int integralid = (int) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getIntegralDeatlis(integralid),view,whichApi);
+                break;
+            case ApiConfig.INTEGRAlS_FITS:
+                int inte = (int) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getIntegralFints(inte),view,whichApi);
+                break;
+            case ApiConfig.INTEGRAL_ALL:
+                int ids = (int) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getIntegralAll(ids),view,whichApi);
+                break;
+            case ApiConfig.ALLSPENUM:
+                int pids = (int) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getAllSpenum(pids),view,whichApi);
+                break;
+            case ApiConfig.MORENDIZHI:
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getMOren(),view,whichApi);
+                break;
+            case ApiConfig.CHUANGJIANJIFENGHAOLI:
+                RequestBody requestBodyss = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getChuan(requestBodyss),view,whichApi);
+                break;
+            case ApiConfig.ADDRESSLIST:
+                RequestBody bodyss = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getAddressList(bodyss),view,whichApi);
+                break;
+            case ApiConfig.ADDADDRESS:
+                RequestBody requestBodys = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getAddaddress(requestBodys),view,whichApi);
+                break;
+            case ApiConfig.SEARCH_DATA:
+                String cont = (String) t[0];
+                String uid = (String) t[1];
+                int ty = (int) t[2];
+                int nu = (int) t[3];
+                int si = (int) t[4];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getSearchData(cont,uid,ty,nu,si),view,whichApi);
+                break;
+            case ApiConfig.SEARCH_DATA_SHOPPING:
+                String conts = (String) t[0];
+                String uids = (String) t[1];
+                int tys = (int) t[2];
+                int nus = (int) t[3];
+                int sis = (int) t[4];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getSearchDatas(conts,uids,tys,nus,sis),view,whichApi);
+                break;
+            case ApiConfig.SEARCH_DATA_TOPIC:
+                String contss = (String) t[0];
+                String uidss = (String) t[1];
+                int tyss = (int) t[2];
+                int nuss = (int) t[3];
+                int siss = (int) t[4];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getSearchDatass(contss,uidss,tyss,nuss,siss),view,whichApi);
+                break;
+            case ApiConfig.SEARCH_DATA_SHOPPINGSSS:
+                String contsss = (String) t[0];
+                String uidsss = (String) t[1];
+                int tysss = (int) t[2];
+                int nusss = (int) t[3];
+                int sisss = (int) t[4];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getSearchDatassss(contsss,uidsss,tysss,nusss,sisss),view,whichApi);
+                break;
+            case ApiConfig.SEARCHLOSTIOH_DATA:
+                String ididid = (String) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getSearchListoy(ididid),view,whichApi);
+                break;
+            case ApiConfig.SEARCHDELECT:
+                String useridsss = (String) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getDelectSearch(useridsss),view,whichApi);
+                break;
+            case ApiConfig.UPDATAPASSWORD:
+                RequestBody phone = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getUpdatePassword(phone),view,whichApi);
+                break;
         }
     }
 }

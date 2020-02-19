@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.example.edives.MainActivity;
 import com.example.edives.R;
 import com.example.edives.activity.ConversationActivity;
+import com.example.edives.activity.IntegralActivity;
+import com.example.edives.activity.SearchActivity;
 import com.example.edives.activity.TopicDetailsActivity;
 import com.example.edives.adapter.RlvHomeChildAdapter;
 import com.example.edives.adapter.RlvHomesAdapter;
@@ -214,13 +216,16 @@ public class HomeFragment extends BaseMvpFragment<HomeModel> {
             default:
                 break;
             case R.id.iv_search:
-
+                //搜索
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                intent.putExtra("id",1);
+                startActivity(intent);
                 break;
             case R.id.iv_reduction:
 
                 break;
             case R.id.iv_integral:
-
+                startActivity(new Intent(getActivity(), IntegralActivity.class));
                 break;
             case R.id.iv_apply:
 

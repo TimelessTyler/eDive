@@ -100,13 +100,17 @@ public class MyDynamicDetailsPersonActivity extends BaseMvpActivity<HomeModel> {
         adapter.setlikeonclick(new RlvMyDynamicDetailsAdapter.setlikeonclick() {
             @Override
             public void setlikeonclick(int pos, View view) {
-                mPresenter.getData(ApiConfig.NEWSLIKE,pos);
+                int id = list.get(pos).getId();
+                int userType = list.get(pos).getUserType();
+                mPresenter.getData(ApiConfig.NEWSLIKE,id,userType);
             }
         });
         adapter.setnolikeonclick(new RlvMyDynamicDetailsAdapter.setnolikeonclick() {
             @Override
             public void setnolikeonclick(int pos, View view) {
-                mPresenter.getData(ApiConfig.NOTLIKE,pos);
+                int id = list.get(pos).getId();
+                int userType = list.get(pos).getUserType();
+                mPresenter.getData(ApiConfig.NOTLIKE,id,userType);
             }
         });
     }

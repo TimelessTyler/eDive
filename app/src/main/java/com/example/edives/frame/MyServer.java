@@ -3,6 +3,7 @@ package com.example.edives.frame;
 import com.example.edives.bean.FindPasswordBean;
 import com.example.edives.bean.LoginBean;
 import com.example.edives.bean.VerificationBean;
+import com.example.edives.bean.VerificationLgoinBean;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
@@ -15,7 +16,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface MyServer {
-    String url = "http://47.107.50.253:8080/DmdMall/";
+    String url = "http://192.168.0.246:8000/";
 
     @POST("sso/login?")
     @FormUrlEncoded
@@ -25,6 +26,11 @@ public interface MyServer {
     @GET("sso/getAuthCode?")
     @Headers("deviceId:007")
     Observable<VerificationBean> getVerGetcode(@Query("mobile") String mobile);
+
+    @POST("sso/mobile?")
+    @FormUrlEncoded
+    @Headers({"Authorization:Basic ZG1kOjEyMzQ1Ng==","deviceId:007"})
+    Observable<VerificationLgoinBean> getVerLogin(@Field("code")String code, @Field("mobile") String mobile, @Field("loginType") String loginType);
 
     @POST("sso/coach/register?")
     @Headers("deviceId:007")

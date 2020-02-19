@@ -108,6 +108,7 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
             @Override
             public void setonclick(int pos) {
                 list.remove(pos);
+                PicList.remove(pos);
                 adapter.notifyDataSetChanged();
             }
         });
@@ -132,6 +133,7 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
                             list.add(path);
                         }
                         adapter.notifyDataSetChanged();
+                        initApply();
                     }
                 }).onCancel(new Action<String>() {
             @Override
@@ -183,7 +185,12 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
                 finish();
                 break;
             case R.id.bt_ok:
-                initOK();
+                String text = mEtText.getText().toString();
+                if (!TextUtils.isEmpty(text)) {
+                    initupload();
+                }else {
+                    showToast("请输入内容");
+                }
                 break;
             case R.id.tv_conversation:
                 Intent intent = new Intent(PublishDynamicActivity.this, ChooesConversationActivity.class);
@@ -193,6 +200,103 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
                 Intent intent1 = new Intent(PublishDynamicActivity.this, LocationActivity.class);
                 startActivityForResult(intent1,100);
                 break;
+        }
+    }
+    private void initupload() {
+        String join = StringUtils.join(PicList, ",");
+        String nickname = mApplication.nickname;
+        String content = mEtText.getText().toString();
+        String userid = mApplication.userid;
+        location = mTvLocation.getText().toString();
+        if (location.equals("添加地点")) {
+            location = "";
+        }
+        String topicids = SharedPrefrenceUtils.getString(PublishDynamicActivity.this, "topicid");
+        if (!TextUtils.isEmpty(topicids)) {
+            topicid = Integer.valueOf(topicids);
+        }
+        MediaType type = MediaType.parse("application/json;charset=UTF-8");
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("dynamicAddress", location);
+            jsonObject.put("dynamicAuthor", nickname);
+            jsonObject.put("dynamicContent", content);
+            jsonObject.put("dynamicPicture", join);
+            jsonObject.put("topicId", topicid);
+            jsonObject.put("userId", userid);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String string = jsonObject.toString();
+        RequestBody bodys = RequestBody.create(type, string);
+        mPresenter.getData(ApiConfig.ADDDYNAMIC,bodys);
+    }
+
+    private void initApply() {
+        showLoadingDialog();
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .build();
+        for (int i = 0; i < list.size(); i++) {
+
+            /**
+             * 封装文件上传的  请求体
+             */
+            File file = new File(list.get(i));
+            //1.设置文件以及文件上传类型封装
+            RequestBody requestBody = RequestBody.create(MediaType.parse("image/jpg"), file);
+
+            //2.文件上传的请求体封装
+            MultipartBody body = new MultipartBody.Builder()
+                    .setType(MultipartBody.FORM)//设置文件上传Type类型为multipart/form-data
+                    .addFormDataPart("files", file.getName(), requestBody)//设置文件参数
+                    .build();
+
+            Request request = new Request.Builder()
+                    .url("http://47.107.50.253:8080/DmdMall/uploadFile/saveFile")
+                    .addHeader("Authorization","Bearer " + BaseApplication.getInstance().Token)
+                    .post(body)
+                    .build();
+
+            Call call = okHttpClient.newCall(request);
+
+            call.enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Log.e("onFailure",e.getMessage());
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    hideLoadingDialog();
+                    String str = response.body().string();
+
+                    Gson gson = new Gson();
+                    final UpLoadBean upLoadBean = gson.fromJson(str, UpLoadBean.class);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (upLoadBean!=null){
+                                if (upLoadBean.getCode() == 200){
+                                    Log.e("ben",upLoadBean.toString());
+                                    //上传成功之后返回的图片路径
+                                    String data = upLoadBean.getData();
+                                    PicList.add(data);
+                                    if (PicList.size() == list.size()) {
+
+                                    }
+                                }else {
+//                                            Toast.makeText(PublishDynamicActivity.this,upLoadBean.getCode(),Toast.LENGTH_SHORT).show();
+                                }
+                            }else{
+                                Toast.makeText(PublishDynamicActivity.this,"错误",Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+                    });
+                }
+            });
         }
     }
 
@@ -231,7 +335,7 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
                     .build();
 
             Request request = new Request.Builder()
-                    .url("http://47.107.50.253:8080/DmdMall/uploadFile/saveFile")
+                    .url("http://192.168.0.246:8000/uploadFile/saveFile")
                     .addHeader("Authorization", "Bearer " + BaseApplication.getInstance().Token)
                     .post(body)
                     .build();
@@ -292,7 +396,7 @@ public class PublishDynamicActivity extends BaseMvpActivity<HomeModel> {
 //                                                FileUtils.deleteDir();//删除保存内容
                                     }
                                 } else {
-//                                            Toast.makeText(PublishDynamicActivity.this,upLoadBean.getCode(),Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(PublishDynamicActivity.this,upLoadBean.getCode()+upLoadBean.getMessage(),Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 Toast.makeText(PublishDynamicActivity.this, "错误", Toast.LENGTH_SHORT).show();

@@ -81,15 +81,17 @@ public class RlvDynamicDetailsAdapter extends RecyclerView.Adapter<RlvDynamicDet
 
             }
         });
+
         viewHolder1.mTvText.setText(list.get(i).getDynamicContent());
         viewHolder1.mTvName.setText(list.get(i).getDynamicAuthor());
         viewHolder1.mTvTime.setText(list.get(i).getCreateTime());
         viewHolder1.mTvDznum.setText(list.get(i).getDynamicPraise()+"赞");
+        viewHolder1.mTvDznum.setText(list.get(i).getDynamicPraise()+"赞");
         String dynamicAddress = list.get(i).getDynamicAddress();
-        if (!TextUtils.isEmpty(dynamicAddress)) {
-            viewHolder1.mTvWz.setText(dynamicAddress);
-        }else {
+        if (TextUtils.isEmpty(dynamicAddress)||dynamicAddress.equals("不显示位置")||dynamicAddress.equals("添加地点")) {
             viewHolder1.mTvWz.setVisibility(View.GONE);
+        }else {
+            viewHolder1.mTvWz.setText(dynamicAddress);
         }
         int userId = list.get(i).getUserId();
         if (list.get(i).getIdentification() == 0) {

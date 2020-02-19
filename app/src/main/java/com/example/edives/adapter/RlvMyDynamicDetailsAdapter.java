@@ -56,6 +56,10 @@ public class RlvMyDynamicDetailsAdapter extends RecyclerView.Adapter<RlvMyDynami
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
         Glide.with(activity).load(list.get(i).getDynamicHeadPortrait()).error(R.mipmap.morentouxiang).placeholder(R.mipmap.morentouxiang).into(viewHolder.mIvPhoto);
 //        Glide.with(activity).load(list.get(i).getDynamicPicture()).placeholder(R.mipmap.bg).transform(new CenterCrop(), new GlideRoundTransform(activity, 4)).into(viewHolder.mIvShow);
+        String dynamicAddress = list.get(i).getDynamicAddress();
+        if (TextUtils.isEmpty(dynamicAddress)||dynamicAddress.equals("不显示位置")||dynamicAddress.equals("添加地点")) {
+            viewHolder.mTvWz.setVisibility(View.GONE);
+        }
         strList = new ArrayList<>();
         GridLayoutManager manager;
         String dynamicPicture = list.get(i).getDynamicPicture();
@@ -101,7 +105,7 @@ public class RlvMyDynamicDetailsAdapter extends RecyclerView.Adapter<RlvMyDynami
                 viewHolder.mBtLike.setVisibility(View.VISIBLE);
                 if (likes != null) {
 
-                    likes.setlikeonclick(id,v);
+                    likes.setlikeonclick(i,v);
                 }
                 viewHolder.mTvDznum.setText(list.get(i).getDynamicPraise()+1+"赞");
             }
@@ -114,7 +118,7 @@ public class RlvMyDynamicDetailsAdapter extends RecyclerView.Adapter<RlvMyDynami
                 viewHolder.mBtNoLike.setVisibility(View.VISIBLE);
                 if (like != null) {
 
-                    like.setnolikeonclick(id,v);
+                    like.setnolikeonclick(i,v);
                 }
                 viewHolder.mTvDznum.setText(list.get(i).getDynamicPraise()+"赞");
 
@@ -123,9 +127,9 @@ public class RlvMyDynamicDetailsAdapter extends RecyclerView.Adapter<RlvMyDynami
         viewHolder.mTvDelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                int userId = list.get(i).getUserId();
-                follow.setfollowonclick(i);
-//                list.remove(i);
+                if (follow != null) {
+                    follow.setfollowonclick(i);
+                }
             }
         });
         viewHolder.mBtZhuanfa.setOnClickListener(new View.OnClickListener() {

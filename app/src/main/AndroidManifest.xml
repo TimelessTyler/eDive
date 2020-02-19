@@ -41,9 +41,9 @@
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
 
     <application
-        android:name="com.example.edives.frame.BaseApplication"
+        android:name=".frame.BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_logos"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -51,40 +51,62 @@
         android:theme="@style/MyTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:theme">
-        <activity android:name="com.example.edives.activity.LocationActivity"></activity>
-        <activity android:name="com.example.edives.activity.ChooesConversationActivity" />
-        <activity android:name="com.example.edives.activity.MyDynamicDetailsPersonActivity" />
-        <activity android:name="com.example.edives.activity.UserPersonDestialsActivity" />
-        <activity android:name="com.example.edives.activity.ShowPhotoActivity" />
-        <activity android:name="com.example.edives.activity.DynamicDetailsActivity" />
-        <activity android:name="com.example.edives.activity.TopicDetailsActivity" />
-        <activity android:name="com.example.edives.activity.UpdateMyTextActivity" />
-        <activity android:name="com.example.edives.activity.UpdateNameActivity" />
-        <activity android:name="com.example.edives.activity.UpdatePhoneActivity" />
-        <activity android:name="com.example.edives.activity.PersonalDataActivity" />
-        <activity android:name="com.example.edives.activity.SettingActivity" />
-        <activity android:name="com.example.edives.activity.DivingTourActivity" />
-        <activity android:name="com.example.edives.activity.AcademicEvidenceActivity" />
-        <activity android:name="com.example.edives.activity.PublishVideoActivity" />
-        <activity android:name="com.example.edives.activity.PublishDynamicActivity" />
-        <activity android:name="com.example.edives.activity.DiveLogActivity" />
-        <activity android:name="com.example.edives.activity.ConversationActivity" />
-        <activity android:name="com.example.edives.activity.IntegralActivity" />
-        <activity android:name="com.example.edives.activity.RestorationActivity" />
-        <activity android:name="com.example.edives.activity.HomeActivity" />
-        <activity android:name="com.example.edives.activity.FindPasswordActivity" />
-        <activity android:name="com.example.edives.activity.RegisterActivity" />
-        <activity android:name="com.example.edives.activity.VerificationLoginActivity" />
-        <activity android:name="com.example.edives.activity.SplashActivity">
+        <activity android:name=".activity.AuditFailedActivity"></activity>
+        <activity android:name=".activity.RefundscheduleActivity" />
+        <activity android:name=".activity.PublishedCoursesActivity" />
+        <activity android:name=".activity.EvaluateActivity" />
+        <activity android:name=".activity.OrderDetailsActivity" />
+        <activity android:name=".activity.MyOrder" />
+        <activity android:name=".activity.UpdatePasswordActivity" />
+        <activity android:name=".activity.UpdatePayPasswordActivity" />
+        <activity android:name=".activity.SuggestionsActivity" />
+        <activity android:name=".activity.FeedbackActivity" />
+        <activity android:name=".activity.AuditDetailsActivity" />
+        <activity android:name=".activity.MytraineeActivity" />
+        <activity android:name=".activity.AttentionActivity" />
+        <activity android:name=".activity.MyauditActivity" />
+        <activity android:name=".activity.DivingDestiActivity" />
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.EditActivity" />
+        <activity android:name=".activity.ChooesAddaressActivity" />
+        <activity android:name=".activity.AddAddressActivity" />
+        <activity android:name=".activity.ConfirmationOrderActivity" />
+        <activity android:name=".activity.IntegralDeatlisActivity" />
+        <activity android:name=".activity.ShowVideoActivity" />
+        <activity android:name=".activity.LocationActivity" />
+        <activity android:name=".activity.ChooesConversationActivity" />
+        <activity android:name=".activity.MyDynamicDetailsPersonActivity" />
+        <activity android:name=".activity.UserPersonDestialsActivity" />
+        <activity android:name=".activity.ShowPhotoActivity" />
+        <activity android:name=".activity.DynamicDetailsActivity" />
+        <activity android:name=".activity.TopicDetailsActivity" />
+        <activity android:name=".activity.UpdateMyTextActivity" />
+        <activity android:name=".activity.UpdateNameActivity" />
+        <activity android:name=".activity.UpdatePhoneActivity" />
+        <activity android:name=".activity.PersonalDataActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.DivingTourActivity" />
+        <activity android:name=".activity.AcademicEvidenceActivity" />
+        <activity android:name=".activity.PublishVideoActivity" />
+        <activity android:name=".activity.PublishDynamicActivity" />
+        <activity android:name=".activity.DiveLogActivity" />
+        <activity android:name=".activity.ConversationActivity" />
+        <activity android:name=".activity.IntegralActivity" />
+        <activity android:name=".activity.RestorationActivity" />
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.FindPasswordActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.VerificationLoginActivity" />
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.edives.MainActivity" />
+        <activity android:name=".MainActivity" />
 
-        <receiver android:name="com.example.edives.utils.NetBroadcastReceiver">
+        <receiver android:name=".utils.NetBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.NET.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.Net.wifi.WIFI_STATE_CHANGED" />

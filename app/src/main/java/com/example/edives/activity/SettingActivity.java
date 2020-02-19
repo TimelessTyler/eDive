@@ -114,15 +114,19 @@ public class SettingActivity extends BaseMvpActivity<PersonModel> {
                 break;
             case R.id.rl_setting_password:
                 //修改密码
+                startActivity(new Intent(SettingActivity.this,UpdatePasswordActivity.class));
                 break;
             case R.id.rl_setting_pay_password:
                 //修改支付密码
+                startActivity(new Intent(SettingActivity.this,UpdatePayPasswordActivity.class));
                 break;
             case R.id.rl_Feedback:
                 //意见反馈
+                startActivity(new Intent(SettingActivity.this,SuggestionsActivity.class));
                 break;
             case R.id.rl_aboutwe:
                 //关于我们
+                startActivity(new Intent(SettingActivity.this,FeedbackActivity.class));
                 break;
             case R.id.rl_Close:
                 //清除 缓存

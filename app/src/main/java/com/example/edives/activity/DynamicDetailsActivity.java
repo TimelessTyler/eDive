@@ -4,10 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -60,6 +64,8 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
     EditText mEtText;
     @BindView(R.id.ll)
     LinearLayout mLl;
+    @BindView(R.id.tv_pl_ok)
+    TextView mTvplok;
     private int pos;
     private ArrayList<DynamicDetailsBean.DataBean> list;
     private RlvDynamicDetailsAdapter adapter;
@@ -71,6 +77,8 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
     private RlvMessagerPlMAdapter plMAdapter;
     private boolean isLastPage;
     private int userType;
+    private int total;
+    private int size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,9 +122,13 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     int lastVisiblePosition = linearLayoutManagers.findLastVisibleItemPosition();
                     if (lastVisiblePosition >= linearLayoutManagers.getItemCount() - 1) {
-                        if (isLastPage == false) {
-                            pagenum++;
-                            mPresenter.getData(ApiConfig.APLLCOMMENT, pagenum, pagesize, pos);
+                        if (size == total) {
+//                            showToast("没有更多数据");
+                        }else {
+                            if (isLastPage == false) {
+                                pagenum++;
+                                mPresenter.getData(ApiConfig.APLLCOMMENT, pagenum, pagesize, pos);
+                            }
                         }
 
 //                        System.out.println("====自动加载");
@@ -205,29 +217,15 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
                 mPresenter.getData(ApiConfig.NOTFOLLOWS, body);
             }
         });
-//        adapter.setlikeonclick(new RlvDynamicDetailsAdapter.setlikeonclick() {
-//            @Override
-//            public void setlikeonclick(int pos, View view) {
-//                int id = list.get(pos).getId();
-//
-//                if (like) {
-//                    mPresenter.getData(ApiConfig.NOTLIKE,id);
-//                }else {
-//                    mPresenter.getData(ApiConfig.NEWSLIKE,id);
-//                }
-//            }
-//        });
-
-        mEtText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mTvplok.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    String content = mEtText.getText().toString();
+            public void onClick(View v) {
+                String content = mEtText.getText().toString();
+                if (!TextUtils.isEmpty(content)) {
+
                     String icon = SharedPrefrenceUtils.getString(DynamicDetailsActivity.this, NormalConfig.ICON);
                     String name = SharedPrefrenceUtils.getString(DynamicDetailsActivity.this, NormalConfig.NICKNAME);
                     String id = SharedPrefrenceUtils.getString(DynamicDetailsActivity.this, NormalConfig.USER_PHOTO);
-                    SharedPrefrenceUtils.getString(DynamicDetailsActivity.this,NormalConfig.log1);
-
                     MediaType type = MediaType.parse("application/json;charset=UTF-8");
                     JSONObject jsonObject = new JSONObject();
                     try {
@@ -241,12 +239,36 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
                     }
                     String string = jsonObject.toString();
                     RequestBody body = RequestBody.create(type, string);
+                    //评论
                     mPresenter.getData(ApiConfig.NEWSDYNAMICDEATILS_COMMENT, body);
                     CloseSearchUtils.hideKeyboard(mEtText);
+                }else {
+                    showToast("评论内容不能为空");
                 }
-                return false;
+
             }
         });
+        mEtText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int length = s.length();
+                if (length == 200) {
+                    showToast("最多输入200字");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
     }
 
     @Override
@@ -296,17 +318,24 @@ public class DynamicDetailsActivity extends BaseMvpActivity<HomeModel> {
                 if (commentBean.getCode() == 200) {
                     showToast(commentBean.getMessage());
                     mEtText.setText("");
-                    mPresenter.getData(ApiConfig.APLLCOMMENT, pagenum, pagesize, pos);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            commentList.clear();
+                            mPresenter.getData(ApiConfig.APLLCOMMENT, 1, total+1, pos);
+                        }
+                    }, 500);
                 }
                 break;
             case ApiConfig.APLLCOMMENT:
 //                commentList.clear();
                 AllCommentBean allCommentBean = (AllCommentBean) t[0];
+                total = allCommentBean.getData().getTotal();
                 List<AllCommentBean.DataBean.ListBean> beanList = allCommentBean.getData().getList();
                 if (allCommentBean.getCode() == 200) {
                     isLastPage = allCommentBean.getData().isIsLastPage();
                     commentList.addAll(beanList);
-                    adapter.notifyDataSetChanged();
+                    size = commentList.size();
                     plMAdapter.notifyDataSetChanged();
                 }
                 break;

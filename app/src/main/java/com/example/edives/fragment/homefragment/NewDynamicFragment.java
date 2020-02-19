@@ -2,6 +2,7 @@ package com.example.edives.fragment.homefragment;
 
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -56,7 +57,7 @@ public class NewDynamicFragment extends BaseMvpFragment<HomeModel> {
         mNewList.setLayoutManager(gridLayoutManager);
         adapter = new RlvNewDynamicAdapter(getActivity(), list);
         mNewList.setAdapter(adapter);
-        mSmrefresh.setEnableRefresh(false);
+        mSmrefresh.setDisableContentWhenRefresh(true);
         mSmrefresh.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
@@ -85,6 +86,7 @@ public class NewDynamicFragment extends BaseMvpFragment<HomeModel> {
 
     @Override
     public void initData() {
+        showLoadingDialog();
         mPresenter.getData(ApiConfig.NEWDYNAMIC_DATA, pagenum, pagesize);
     }
 
@@ -100,9 +102,9 @@ public class NewDynamicFragment extends BaseMvpFragment<HomeModel> {
 
     @Override
     public void onResponse(int whichApi, Object[] t) {
+        hideLoadingDialog();
         switch (whichApi) {
             case ApiConfig.NEWDYNAMIC_DATA:
-//                list.clear();
                 NewDynamicBean bean = (NewDynamicBean) t[0];
                 NewDynamicBean.DataBean data = bean.getData();
                 lastPage = data.getLastPage();
@@ -113,5 +115,12 @@ public class NewDynamicFragment extends BaseMvpFragment<HomeModel> {
                 adapter.notifyDataSetChanged();
                 break;
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        pagenum =1;
+        mSmrefresh.autoRefresh();//自动刷新
     }
 }

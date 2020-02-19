@@ -1,6 +1,7 @@
 package com.example.edives.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.example.edives.R;
+import com.example.edives.activity.TopicDetailsActivity;
 import com.example.edives.bean.BannerInfo;
 import com.example.edives.design.GlideRoundTransform;
 import com.youth.banner.Banner;
@@ -56,7 +58,30 @@ public class RlvHomesAdapter extends RecyclerView.Adapter<RlvHomesAdapter.ViewHo
             viewHolder.bann.setOnBannerListener(new OnBannerListener() {
                 @Override
                 public void OnBannerClick(int position) {
+                    int linkType = list.get(position).getLinkType();
+                    String url = list.get(position).getUrl();
+                    int isJump = list.get(position).getIsJump();
 
+                    Integer integer = Integer.valueOf(url);
+                    if (isJump == 0) {
+
+                    }else if(isJump==1){
+                        if (linkType == 1) {
+//                            Intent intent = new Intent(activity, DivingCertificateActivity.class);
+//                            intent.putExtra("id", integer);
+//                            activity.startActivity(intent);
+                        } else if (linkType == 2) {
+                            Intent intent = new Intent(activity, TopicDetailsActivity.class);
+                            intent.putExtra("id", integer);
+                            activity.startActivity(intent);
+                        } else if (linkType == 3) {
+
+                        } else if (linkType == 4) {
+//                            Intent intent = new Intent(activity, DivingDestiActivity.class);
+//                            intent.putExtra("id", integer);
+//                            activity.startActivity(intent);
+                        }
+                    }
                 }
             });
     }

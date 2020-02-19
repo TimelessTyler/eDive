@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/Setting_bg"
+    android:layout_height="match_parent"
+    tools:context=".activity.AuditDetailsActivity">
+    <com.example.edives.design.CommonTitle
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleText="审核详情"
+        app:canBack="true"
+        app:backImage="@mipmap/icon_back"
+        />
+</RelativeLayout>

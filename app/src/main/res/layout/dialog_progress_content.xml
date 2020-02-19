@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:background="@android:color/transparent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:alpha="0.9"
+    android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
-        <com.example.diving.design.ProgressImageView
+        <com.example.edives.design.ProgressImageView
             android:id="@+id/view_list_empty_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
             android:textColor="@color/grey_loading"
             android:text="@string/loading"
             android:layout_centerVertical="true"
-            android:textSize="@dimen/sp_12"
+            android:textSize="@dimen/sp_18"
             android:layout_width="wrap_content"
             android:layout_marginLeft="@dimen/dp_5"
             android:layout_toRightOf="@+id/view_list_empty_progress"

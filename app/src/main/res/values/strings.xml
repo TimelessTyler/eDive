@@ -2,7 +2,7 @@
     <string name="app_name">eDive</string>
     <string name="verify_second">秒后重新发送</string>
     <string name="get_verify_code">获取验证码</string>
-    <string name="loading">加载中</string>
+    <string name="loading">加载中...</string>
     <string name="login_phone_emil">请输入手机号/邮箱</string>
     <string name="login_pass">密码登录</string>
     <string name="login">登录</string>
@@ -28,4 +28,13 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="photo">照片</string>
     <string name="Setting">设置</string>
+    <string name="search_import_content">请输入你要搜索的内容</string>
+    <string name="sourch_cancel_history">清空</string>
+    <string name="sourch_history">搜索历史</string>
+    <string name="updatepay_ed_phone">请输入手机号</string>
+    <string name="updatepay_et_ok_new_pass">确认新密码</string>
+    <string name="update_ok_btn">确认修改</string>
+    <string name="update_et_former_password">请输入旧密码</string>
+    <string name="update_et_new_password">请输入新密码</string>
+    <string name="update_ok_new_pass">确认新密码</string>
 </resources>

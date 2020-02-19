@@ -19,11 +19,14 @@ import android.widget.TextView;
 import com.example.edives.MainActivity;
 import com.example.edives.R;
 import com.example.edives.bean.VerificationBean;
+import com.example.edives.bean.VerificationLgoinBean;
 import com.example.edives.frame.BaseMvpActivity;
 import com.example.edives.frame.MyServer;
+import com.example.edives.local_utils.SharedPrefrenceUtils;
 import com.example.edives.model.LoginModel;
 import com.example.edives.utils.AppValidationMgr;
 import com.example.edives.utils.CountDownTimerUtils;
+import com.example.edives.utils.NormalConfig;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -73,6 +76,7 @@ public class VerificationLoginActivity extends BaseMvpActivity<LoginModel> {
     @BindView(R.id.iv_wechatLogin)
     ImageView mIvWechatLogin;
     private CountDownTimerUtils downTimerUtils;
+    private String loginType = "coach";
 
 
     @Override
@@ -154,7 +158,58 @@ public class VerificationLoginActivity extends BaseMvpActivity<LoginModel> {
         if (!TextUtils.isEmpty(uname) && !TextUtils.isEmpty(code)) {
             if (AppValidationMgr.isPhone(uname) || AppValidationMgr.isEmail(uname)) {
                 //登陆
-                
+                Retrofit build = new Retrofit.Builder()
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                        .baseUrl(MyServer.url)
+                        .build();
+                MyServer myServer = build.create(MyServer.class);
+                Observable<VerificationLgoinBean> verLogin = myServer.getVerLogin(code, uname,loginType);
+                verLogin.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Observer<VerificationLgoinBean>() {
+                            @Override
+                            public void onSubscribe(Disposable d) {
+
+                            }
+
+                            @Override
+                            public void onNext(VerificationLgoinBean been) {
+                                if (been.getCode() == 200) {
+                                    int id = been.getData().getAdditionalInformation().getId();
+                                    mApplication.Phone = been.getData().getAdditionalInformation().getUsername();
+                                    mApplication.Token = been.getData().getValue();
+                                    mApplication.userid = String.valueOf(id);
+                                    mApplication.nickname = been.getData().getAdditionalInformation().getNickName();
+                                    mApplication.icon = been.getData().getAdditionalInformation().getIcon();
+                                    mApplication.Personalizedsignature = been.getData().getAdditionalInformation().getPersonalizedSignature();
+                                    SharedPrefrenceUtils.saveString(VerificationLoginActivity.this, NormalConfig.PERSONALIZED,been.getData().getAdditionalInformation().getPersonalizedSignature());
+                                    SharedPrefrenceUtils.saveString(VerificationLoginActivity.this, NormalConfig.TOKEN,been.getData().getValue());
+                                    SharedPrefrenceUtils.saveString(VerificationLoginActivity.this, NormalConfig.PHONE,been.getData().getAdditionalInformation().getUsername());
+                                    SharedPrefrenceUtils.saveString(VerificationLoginActivity.this, NormalConfig.USER_PHOTO,String.valueOf(id));
+                                    SharedPrefrenceUtils.saveString(VerificationLoginActivity.this, NormalConfig.NICKNAME,been.getData().getAdditionalInformation().getNickName());
+                                    SharedPrefrenceUtils.saveString(VerificationLoginActivity.this, NormalConfig.ICON,been.getData().getAdditionalInformation().getIcon());
+                                    startActivity(new Intent(VerificationLoginActivity.this,HomeActivity.class));
+                                    showLongToast(been.getMessage());
+                                    finish();
+                                }else if (been.getCode()==500){
+                                    showToast(been.getMessage());
+                                }else {
+                                    showToast(been.getMessage());
+                                }
+
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                showLog(e.getMessage());
+                            }
+
+                            @Override
+                            public void onComplete() {
+
+                            }
+                        });
             }else {
                 showToast("请填写正确的手机号或邮箱");
             }

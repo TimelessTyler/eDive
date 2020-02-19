@@ -43,6 +43,39 @@ public class PersonModel implements ICommonModel {
                 int userTypes = (int) t[3];
                 mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getAlbum(useridperson,personnum,personsize,userTypes),view,whichApi);
                 break;
+            case ApiConfig.ADDARESSMOREN:
+                int addaressid = (int) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getAddaress(addaressid),view,whichApi);
+                break;
+            case ApiConfig.DELECTADDRESS:
+                int addressid = (int) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getDelectAddress(addressid),view,whichApi);
+                break;
+            case ApiConfig.COACHINVITEUSER:
+                RequestBody requestBody = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getCoachuser(requestBody),view,whichApi);
+                break;
+            case ApiConfig.FOLLOWUSERS:
+                RequestBody follow = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getFollows(follow),view,whichApi);
+                break;
+            case ApiConfig.NOTFOLLOW:
+                RequestBody bodyfollow = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getNotfollow(bodyfollow),view,whichApi);
+                break;
+            case ApiConfig.FOLLOWLIST:
+                int numa = (int) t[0];
+                int sizea = (int) t[1];
+                int type = (int) t[2];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getFollowList(numa,sizea,type),view,whichApi);
+                break;
+            case ApiConfig.TIJIAOYIJIAN:
+                RequestBody vodys = (RequestBody) t[0];
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getAddSug(vodys),view,whichApi);
+                break;
+            case ApiConfig.SUGGEST:
+                mManager.method(mManager.getNetService(NetConfig.BASE_URL2).getSuggers(),view,whichApi);
+                break;
         }
     }
 }

@@ -18,6 +18,7 @@ import com.example.edives.R;
 import com.example.edives.frame.BaseActivity;
 import com.example.edives.utils.NormalConfig;
 import com.example.edives.utils.SharedPrefrenceUtils;
+import com.example.edives.utils.StatusBarUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,14 +31,21 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        makeStatusBarTransparent(SplashActivity.this);
+        setStatusBar();
+//        makeStatusBarTransparent(SplashActivity.this);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         setAnimation();
     }
+
+    protected void setStatusBar() {
+        //这里做了两件事情，1.使状态栏透明并使contentView填充到状态栏 2.预留出状态栏的位置，防止界面上的控件离顶部靠的太近。这样就可以实现开头说的第二种情况的沉浸式状态栏了
+        StatusBarUtil.setTranslucentStatus(this);
+    }
+
     private void setAnimation() {
-        AlphaAnimation mAa = new AlphaAnimation(0, 1);
-        mAa.setDuration(3000);
+        AlphaAnimation mAa = new AlphaAnimation((float) 0.5, 1);
+        mAa.setDuration(2000);
         mAa.setFillAfter(true);
         AnimationSet mAs = new AnimationSet(true);
         mAs.addAnimation(mAa);

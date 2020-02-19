@@ -96,6 +96,11 @@ public class UserPersonDestialsActivity extends BaseMvpActivity<PersonModel> {
         id = getIntent().getExtras().getInt("id");
         userType = getIntent().getExtras().getInt("userType");
         favoriteType = getIntent().getExtras().getInt("favoriteType");
+        if (userType == 2) {
+            mIvThree.setVisibility(View.VISIBLE);
+        }else {
+            mIvThree.setVisibility(View.GONE);
+        }
         manager = getSupportFragmentManager();
         strList = new ArrayList<>();
         fs = new ArrayList<>();
@@ -166,7 +171,7 @@ public class UserPersonDestialsActivity extends BaseMvpActivity<PersonModel> {
                             MediaType type = MediaType.parse("application/json;charset=UTF-8");
                             JSONObject jsonObject = new JSONObject();
                             try {
-                                jsonObject.put("favoriteType", 1);
+                                jsonObject.put("favoriteType", userType);
                                 jsonObject.put("status", 1);
                                 jsonObject.put("targetId", userid);
                             } catch (JSONException e) {
@@ -185,7 +190,7 @@ public class UserPersonDestialsActivity extends BaseMvpActivity<PersonModel> {
                             MediaType type = MediaType.parse("application/json;charset=UTF-8");
                             JSONObject jsonObject = new JSONObject();
                             try {
-                                jsonObject.put("favoriteType", 1);
+                                jsonObject.put("favoriteType", userType);
                                 jsonObject.put("status", 2);
                                 jsonObject.put("targetId", userid);
                             } catch (JSONException e) {

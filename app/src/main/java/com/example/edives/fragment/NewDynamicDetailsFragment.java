@@ -261,7 +261,8 @@ public class NewDynamicDetailsFragment extends BaseMvpFragment<HomeModel> {
                 FollowBean followBean = (FollowBean) t[0];
                 if (followBean.getCode() == 200) {
                     showToast("关注成功");
-
+                    list.clear();
+                    mPresenter.getData(ApiConfig.NEWSDYNAMICDEATILS_DATA, pos,num,size);
                 } else if (followBean.getCode() == 500) {
                     showToast(followBean.getMessage());
                 }
@@ -270,6 +271,8 @@ public class NewDynamicDetailsFragment extends BaseMvpFragment<HomeModel> {
                 NotFollowBean notFollowBean = (NotFollowBean) t[0];
                 if (notFollowBean.getCode() == 200) {
                     showToast("取消关注");
+                    list.clear();
+                    mPresenter.getData(ApiConfig.NEWSDYNAMICDEATILS_DATA, pos,num,size);
                 }
                 break;
         }

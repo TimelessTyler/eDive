@@ -45,31 +45,43 @@
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
-        android:background="@color/findpassword_bg"
+        android:background="@color/bg_popo_person"
         android:orientation="horizontal"
+        android:padding="@dimen/dp_10"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_marginTop="@dimen/dp_7"
-            android:layout_marginBottom="@dimen/dp_7"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_20"
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:id="@+id/et_text"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_weight="10"
+            android:layout_marginLeft="@dimen/dp_15"
             android:background="@drawable/search_bg"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/et_text"
-                android:layout_marginLeft="@dimen/dp_10"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_35"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:background="@null"
-                android:hint="评论"
-                android:textColor="@color/hint"
-                android:textColorHint="@color/hint"
-                android:textSize="@dimen/sp_13"
-                />
-        </RelativeLayout>
+            android:hint="评论"
+            android:maxHeight="@dimen/dp_70"
+            android:padding="@dimen/dp_10"
+            android:scrollbars="vertical"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:maxLength="200"
+            android:textCursorDrawable="@null"
+            android:minLines="1"
+            android:singleLine="false"
+            android:textColor="@color/hint"
+            android:textColorHint="@color/hint"
+            android:textSize="@dimen/sp_13" />
+        <TextView
+            android:layout_weight="0.5"
+            android:id="@+id/tv_pl_ok"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/blue"
+            />
     </LinearLayout>
 </RelativeLayout>

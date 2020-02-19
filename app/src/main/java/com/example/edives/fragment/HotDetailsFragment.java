@@ -234,8 +234,9 @@ public class HotDetailsFragment extends BaseMvpFragment<HomeModel> {
             case ApiConfig.FOLLOWUSER:
                 FollowBean followBean = (FollowBean) t[0];
                 if (followBean.getCode() == 200) {
-                    showToast(followBean.getMessage());
-
+                    showToast("关注成功");
+                    list.clear();
+                    mPresenter.getData(ApiConfig.HOTDETALIS_DATA, num, size, pos);
                 } else if (followBean.getCode() == 500) {
                     showToast(followBean.getMessage());
                 }
@@ -244,6 +245,8 @@ public class HotDetailsFragment extends BaseMvpFragment<HomeModel> {
                 NotFollowBean notFollowBean = (NotFollowBean) t[0];
                 if (notFollowBean.getCode() == 200) {
                     showToast("取消关注");
+                    list.clear();
+                    mPresenter.getData(ApiConfig.HOTDETALIS_DATA, num, size, pos);
                 }
                 break;
         }
