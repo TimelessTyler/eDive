@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/Setting_bg"
+    android:layout_height="match_parent"
+    tools:context=".activity.ShopSettingActivity">
+    <com.example.edives.design.CommonTitle
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleText="店铺设置"
+        app:backImage="@mipmap/icon_back"
+        app:canBack="true"
+        />
+    <RelativeLayout
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_width="match_parent"
+        android:background="@drawable/shape_tongzhi"
+        android:padding="@dimen/dp_16"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前店铺星级"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"
+            />
+        <ImageView
+            android:id="@+id/iv_tishi"
+            android:layout_width="@dimen/dp_13"
+            android:layout_height="@dimen/dp_13"
+            android:src="@mipmap/icon_tishi"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_15"
+        android:orientation="vertical"
+        android:background="@drawable/shape_tongzhi"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/rl_iv_photo"
+            android:layout_width="match_parent"
+            android:padding="@dimen/dp_16"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="店铺LOGO"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
+
+            <ImageView
+                android:id="@+id/iv_photomore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/icon_more" />
+
+            <ImageView
+                android:id="@+id/iv_photosa"
+                android:layout_width="@dimen/dp_38"
+                android:layout_height="@dimen/dp_38"
+                android:layout_margin="@dimen/dp_8"
+                android:layout_toLeftOf="@id/iv_photomore"
+                android:src="@mipmap/ic_launcher" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:text="店铺名称"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15" />
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_20"
+                android:src="@mipmap/icon_more" />
+
+            <TextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_toLeftOf="@id/iv"
+                android:gravity="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="xxxxx店铺"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_notice"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:text="店铺公告"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15" />
+
+            <ImageView
+                android:id="@+id/iv_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_20"
+                android:src="@mipmap/icon_more" />
+
+            <TextView
+                android:id="@+id/tv_notice"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_toLeftOf="@id/iv_s"
+                android:gravity="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="xxxxx店铺"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_phone"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:text="店铺电话"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15" />
+
+            <ImageView
+                android:id="@+id/iv_o"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_20"
+                android:src="@mipmap/icon_more" />
+
+            <TextView
+                android:id="@+id/tv_shop_phone"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_toLeftOf="@id/iv_o"
+                android:gravity="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="xxxxx店铺"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_auto"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:text="自动回复"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15" />
+
+            <ImageView
+                android:id="@+id/iv_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_20"
+                android:src="@mipmap/icon_more" />
+
+            <TextView
+                android:id="@+id/tv_autotext"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_toLeftOf="@id/iv_a"
+                android:gravity="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="xxxxx店铺"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_15" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

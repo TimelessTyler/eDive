@@ -108,7 +108,7 @@
                 android:textColor="@color/white"
                 />
             <TextView
-                android:layout_marginRight="-13dp"
+                android:layout_marginRight="-19dp"
                 android:layout_width="@dimen/dp_144"
                 android:layout_height="@dimen/dp_35"
                 android:layout_centerVertical="true"

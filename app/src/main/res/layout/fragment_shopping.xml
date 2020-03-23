@@ -11,45 +11,7 @@
         android:id="@+id/tit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleText="课程管理"
+        app:titleText="商城"
         />
-    <RelativeLayout
-        android:id="@+id/rl"
-        android:layout_width="match_parent"
-        android:layout_below="@id/tit"
-        android:background="@color/findpassword_bg"
-        android:layout_height="wrap_content">
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tab"
-            android:layout_marginLeft="@dimen/dp_30"
-            android:layout_marginRight="@dimen/dp_30"
-            android:layout_marginBottom="@dimen/dp_5"
-            android:layout_width="match_parent"
-            app:tabBackground="@drawable/select_tab"
-            app:tabTextColor="@color/white"
-            app:tabMaxWidth="@dimen/dp_0"
-            app:tabGravity="fill"
-            app:tabMode="fixed"
-            app:tabIndicatorHeight="@dimen/dp_0"
-            android:layout_height="@dimen/dp_36"/>
-    </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp"
-        android:layout_below="@id/rl"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <Button
-        android:id="@+id/bt_cl"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_marginRight="@dimen/dp_20"
-        android:layout_marginBottom="@dimen/dp_50"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape"
-        android:gravity="center"
-        android:text="重新编辑"
-        android:textColor="@color/white"
-        />
 </RelativeLayout>

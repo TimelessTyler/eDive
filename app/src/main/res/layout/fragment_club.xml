@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/Setting_bg"
     android:layout_height="match_parent"
     tools:context=".fragment.ClubFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.tencent.qcloud.tim.uikit.modules.conversation.ConversationLayout
+        android:id="@+id/conversation_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="2222222222222" />
+        android:layout_height="match_parent" />
 
-</FrameLayout>
+</LinearLayout>

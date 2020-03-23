@@ -19,7 +19,7 @@
             android:layout_marginLeft="@dimen/dp_18"
             android:layout_width="@dimen/dp_18"
             android:layout_height="@dimen/dp_18"
-            android:src="@mipmap/icon_num"
+
             />
         <EditText
             android:layout_marginTop="@dimen/dp_13"
@@ -52,7 +52,6 @@
             android:layout_marginLeft="@dimen/dp_18"
             android:layout_width="@dimen/dp_18"
             android:layout_height="@dimen/dp_18"
-            android:src="@mipmap/icon_key"
             />
         <EditText
             android:layout_marginTop="@dimen/dp_5"

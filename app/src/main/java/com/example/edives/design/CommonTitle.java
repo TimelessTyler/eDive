@@ -37,7 +37,7 @@ public class CommonTitle extends RelativeLayout {
             mMoreImg = ta.getResourceId(R.styleable.CommonTitle_moreImg, 0);
             mBackImage = ta.getResourceId(R.styleable.CommonTitle_backImage, 0);
             mMoreText = ta.getString(R.styleable.CommonTitle_moreText);
-            mBackColor = ta.getColor(R.styleable.CommonTitle_backColor, ContextCompat.getColor(context, R.color.app_setting));
+            mBackColor = ta.getColor(R.styleable.CommonTitle_backColor, ContextCompat.getColor(context, R.color.Setting_bg));
             setUpView(context);
         } finally {
             ta.recycle();

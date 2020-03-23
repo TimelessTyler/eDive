@@ -48,16 +48,16 @@ public class MyOrder extends BaseActivity {
 
     private void initView() {
         fs = new ArrayList<>();
-//        fs.add(new IntegralOutFragment());//待付款
-        fs.add(new AllFragment());//已付款
-        fs.add(new PendingPaymentFragment());//进行中
-        fs.add(new TobeShippedFragment());//退款
-        fs.add(new FinishedFragment());//已完成
-//        mTab.addTab(mTab.newTab().setText("待付款"));
-        mTab.addTab(mTab.newTab().setText("已付款"));
-        mTab.addTab(mTab.newTab().setText("进行中"));
-        mTab.addTab(mTab.newTab().setText("退款"));
+        fs.add(new IntegralOutFragment());//待付款
+        fs.add(new AllFragment());//待完成
+        fs.add(new PendingPaymentFragment());//待评价
+        fs.add(new TobeShippedFragment());//已完成
+        fs.add(new FinishedFragment());//已关闭
+        mTab.addTab(mTab.newTab().setText("待付款"));
+        mTab.addTab(mTab.newTab().setText("待完成"));
+        mTab.addTab(mTab.newTab().setText("待评价"));
         mTab.addTab(mTab.newTab().setText("已完成"));
+        mTab.addTab(mTab.newTab().setText("已关闭"));
         VpMyorderAdapter vpMyorderAdapter = new VpMyorderAdapter(getSupportFragmentManager(), fs);
         mVp.setAdapter(vpMyorderAdapter);
         mTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -79,5 +79,6 @@ public class MyOrder extends BaseActivity {
         });
         mVp.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTab));
         mTab.setTabIndicatorFullWidth(false);
+        mTab.setSelectedTabIndicatorHeight(0);
     }
 }

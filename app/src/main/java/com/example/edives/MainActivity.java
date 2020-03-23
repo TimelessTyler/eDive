@@ -44,36 +44,18 @@ public class MainActivity extends BaseMvpActivity<HomeModel> {
 
     @BindView(R.id.tv_loginString)
     TextView mTvLoginString;
-    @BindView(R.id.tv_uanmeloginString)
-    TextView mTvUanmeloginString;
-    @BindView(R.id.iv_line)
-    ImageView mIvLine;
     @BindView(R.id.tv_VerificationCodeLogin)
     TextView mTvVerificationCodeLogin;
     @BindView(R.id.et_uname)
     EditText mEtUname;
-    @BindView(R.id.ll)
-    LinearLayout mLl;
     @BindView(R.id.et_password)
     EditText mEtPassword;
-    @BindView(R.id.lltwo)
-    LinearLayout mLltwo;
     @BindView(R.id.iv_unameandpasswordLogin)
-    ImageView mIvUnameandpasswordLogin;
-    @BindView(R.id.rlone)
-    RelativeLayout mRlone;
+    RelativeLayout mIvUnameandpasswordLogin;
     @BindView(R.id.tv_Registered)
     TextView mTvRegistered;
     @BindView(R.id.tv_ForgetPassword)
     TextView mTvForgetPassword;
-    @BindView(R.id.llthree)
-    LinearLayout mLlthree;
-    @BindView(R.id.tv_QuickLogin)
-    TextView mTvQuickLogin;
-    @BindView(R.id.rl)
-    RelativeLayout mRl;
-    @BindView(R.id.iv_wechatLogin)
-    ImageView mIvWechatLogin;
     private String type = "password";
     private String loginType = "coach";
 
@@ -85,8 +67,8 @@ public class MainActivity extends BaseMvpActivity<HomeModel> {
 
     @Override
     public void initView() {
+
         makeStatusBarTransparent(MainActivity.this);
-        setTextViewStyles(mTvUanmeloginString);
     }
 
     @Override
@@ -110,18 +92,15 @@ public class MainActivity extends BaseMvpActivity<HomeModel> {
     }
 
 
-    @OnClick({R.id.tv_uanmeloginString, R.id.tv_VerificationCodeLogin, R.id.iv_unameandpasswordLogin, R.id.tv_Registered, R.id.tv_ForgetPassword, R.id.tv_QuickLogin, R.id.iv_wechatLogin})
+    @OnClick({ R.id.tv_VerificationCodeLogin, R.id.iv_unameandpasswordLogin, R.id.tv_Registered, R.id.tv_ForgetPassword, R.id.iv_wechatLogin})
     public void onClick(View v) {
         switch (v.getId()) {
             default:
                 break;
-            case R.id.tv_uanmeloginString:
-
-                break;
             case R.id.tv_VerificationCodeLogin:
                 //验证码登录
                 startActivity(new Intent(MainActivity.this, VerificationLoginActivity.class));
-                finish();
+//                finish();
                 break;
             case R.id.iv_unameandpasswordLogin:
                 //登录
@@ -134,9 +113,6 @@ public class MainActivity extends BaseMvpActivity<HomeModel> {
             case R.id.tv_ForgetPassword:
                 //找回密码
                 startActivity(new Intent(MainActivity.this, FindPasswordActivity.class));
-                break;
-            case R.id.tv_QuickLogin:
-
                 break;
             case R.id.iv_wechatLogin:
                 //微信

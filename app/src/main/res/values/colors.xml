@@ -40,8 +40,8 @@
     <color name="c_00000000">#00000000</color>
     <color name="c_e7e7e7">#e7e7e7</color>
     <color name="VerificationLogin">#FFCBCBCB</color>
-    <color name="app_setting">#FF001838</color>
-    <color name="Setting_bg">#FF001128</color>
+    <color name="app_setting">#2D3559</color>
+    <color name="Setting_bg">#2D3559</color>
     <color name="Setting_ll_bg">#FF0F1F35</color>
     <color name="cleancolor">#FF0066FF</color>
     <color name="cardview_bg_findpass_0F1F36">#FF0F1F35</color>
@@ -82,4 +82,9 @@
     <color name="hint_text">#FF999999</color>
     <color name="text_colors">#FFF3F3F3</color>
     <color name="atten_tab">#CCCCCC</color>
+    <color name="radig_bg">#2E3961</color>
+    <color name="select_shop">#04C9C9</color>
+    <color name="select_shops">#FFFFFF</color>
+    <color name="color_phone">#CECECE</color>
+    <color name="tv_verlogin">#98A1AE</color>
 </resources>

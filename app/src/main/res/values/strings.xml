@@ -37,4 +37,18 @@
     <string name="update_et_former_password">请输入旧密码</string>
     <string name="update_et_new_password">请输入新密码</string>
     <string name="update_ok_new_pass">确认新密码</string>
+    <string name="rb_dp">店铺</string>
+    <string name="rb_sp">商场</string>
+    <string name="rb_sc">日程</string>
+    <string name="rb_club">社圈</string>
+    <string name="rb_my">我的</string>
+    <string name="et_phone_user">手机号</string>
+    <string name="et_password_user">密码</string>
+    <string name="tv_yzmlogin">验证码登录</string>
+    <string name="tv_misspassword">忘记密码?</string>
+    <string name="tv_log">快捷登录</string>
+    <string name="et_ver_user">验证码</string>
+    <string name="tv_yzmlogins">密码登录</string>
+    <string name="et_code">请输入验证码</string>
+    <string name="et_passwords">请确认密码</string>
 </resources>

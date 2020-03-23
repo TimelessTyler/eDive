@@ -11,15 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:canBack="true"
-        app:titleText="我的订单"
+        app:titleText="订单管理"
         app:backImage="@mipmap/icon_back"
         />
     <android.support.design.widget.TabLayout
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
         android:id="@+id/tab"
         android:layout_width="match_parent"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/atten_tab"
-        android:background="@color/app_setting"
+        app:tabBackground="@drawable/tabitem"
+        android:background="@color/Setting_bg"
         android:layout_height="@dimen/dp_44"/>
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"

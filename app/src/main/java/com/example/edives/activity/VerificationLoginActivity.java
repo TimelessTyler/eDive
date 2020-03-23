@@ -43,36 +43,18 @@ public class VerificationLoginActivity extends BaseMvpActivity<LoginModel> {
 
     @BindView(R.id.tv_loginString)
     TextView mTvLoginString;
-    @BindView(R.id.tv_uanmeloginString)
-    TextView mTvUanmeloginString;
-    @BindView(R.id.iv_line)
-    ImageView mIvLine;
-    @BindView(R.id.tv_VerificationCodeLogin)
-    TextView mTvVerificationCodeLogin;
     @BindView(R.id.et_uname)
     EditText mEtUname;
-    @BindView(R.id.ll)
-    LinearLayout mLl;
     @BindView(R.id.et_VerificationCode)
     EditText mEtVerificationCode;
     @BindView(R.id.tv_getVerificationCode)
     TextView mTvGetVerificationCode;
-    @BindView(R.id.lltwo)
-    LinearLayout mLltwo;
     @BindView(R.id.iv_Login)
-    ImageView mIvLogin;
-    @BindView(R.id.rlone)
-    RelativeLayout mRlone;
+    TextView mIvLogin;
     @BindView(R.id.tv_Registered)
     TextView mTvRegistered;
     @BindView(R.id.tv_ForgetPassword)
     TextView mTvForgetPassword;
-    @BindView(R.id.llthree)
-    LinearLayout mLlthree;
-    @BindView(R.id.tv_QuickLogin)
-    TextView mTvQuickLogin;
-    @BindView(R.id.rl)
-    RelativeLayout mRl;
     @BindView(R.id.iv_wechatLogin)
     ImageView mIvWechatLogin;
     private CountDownTimerUtils downTimerUtils;
@@ -86,8 +68,7 @@ public class VerificationLoginActivity extends BaseMvpActivity<LoginModel> {
 
     @Override
     public void initView() {
-        setTextViewStyles(mTvVerificationCodeLogin);
-        setTextViewStyles(mTvGetVerificationCode);
+
         makeStatusBarTransparent(VerificationLoginActivity.this);
 
         //倒计时工具类
@@ -114,7 +95,7 @@ public class VerificationLoginActivity extends BaseMvpActivity<LoginModel> {
 
     }
 
-    @OnClick({R.id.tv_uanmeloginString, R.id.tv_VerificationCodeLogin, R.id.tv_getVerificationCode, R.id.iv_Login, R.id.tv_Registered, R.id.tv_ForgetPassword, R.id.tv_QuickLogin, R.id.iv_wechatLogin})
+    @OnClick({R.id.tv_uanmeloginString, R.id.tv_getVerificationCode, R.id.iv_Login, R.id.tv_Registered, R.id.tv_ForgetPassword, R.id.iv_wechatLogin})
     public void onClick(View v) {
         switch (v.getId()) {
             default:
@@ -125,8 +106,6 @@ public class VerificationLoginActivity extends BaseMvpActivity<LoginModel> {
                 finish();
                 break;
                 //
-            case R.id.tv_VerificationCodeLogin:
-                break;
                 //获取验证码
             case R.id.tv_getVerificationCode:
                 initgetcode();
@@ -142,8 +121,6 @@ public class VerificationLoginActivity extends BaseMvpActivity<LoginModel> {
                 //忘记密码
             case R.id.tv_ForgetPassword:
                 startActivity(new Intent(VerificationLoginActivity.this, FindPasswordActivity.class));
-                break;
-            case R.id.tv_QuickLogin:
                 break;
                 //微信
             case R.id.iv_wechatLogin:

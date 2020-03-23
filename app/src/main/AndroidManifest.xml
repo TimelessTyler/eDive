@@ -51,7 +51,16 @@
         android:theme="@style/MyTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:theme">
-        <activity android:name=".activity.AuditFailedActivity"></activity>
+        <activity android:name=".activity.NewProductsActivity"></activity>
+        <activity android:name=".activity.DivingResearchActivity" />
+        <activity android:name=".activity.ChooseProductActivity" />
+        <activity android:name=".activity.DivingTripActivity" />
+        <activity android:name=".activity.PhotoRentActivity" />
+        <activity android:name=".activity.PhotoServerActivity" />
+        <activity android:name=".activity.DivingServerActivity" />
+        <activity android:name=".activity.ShopSettingActivity" />
+        <activity android:name=".activity.OrderissueActivity" />
+        <activity android:name=".activity.AuditFailedActivity" />
         <activity android:name=".activity.RefundscheduleActivity" />
         <activity android:name=".activity.PublishedCoursesActivity" />
         <activity android:name=".activity.EvaluateActivity" />
@@ -119,6 +128,16 @@
             android:value="249c6d75c7872e22428ec42591d5c97f" />
 
         <service android:name="com.amap.api.location.APSService" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public" />
+        </provider>
     </application>
 
 </manifest>

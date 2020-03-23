@@ -24,6 +24,7 @@ import com.example.edives.fragment.ClubFragment;
 import com.example.edives.fragment.HomeFragment;
 import com.example.edives.fragment.PersonalFragment;
 import com.example.edives.fragment.ScheduleFragment;
+import com.example.edives.fragment.ShopFragment;
 import com.example.edives.fragment.ShoppingFragment;
 import com.example.edives.frame.BaseActivity;
 import com.example.edives.utils.StatusBarUtil;
@@ -50,8 +51,6 @@ public class HomeActivity extends BaseActivity {
     RadioButton mRbPersonal;
     @BindView(R.id.rg)
     RadioGroup mRg;
-    @BindView(R.id.home_fb_iv)
-    ImageView mHomeFbIv;
     private ArrayList<Fragment> fs;
     private FragmentManager fragmentManager;
     private int mpostion;
@@ -69,7 +68,7 @@ public class HomeActivity extends BaseActivity {
 
     private void initview() {
         fs = new ArrayList<>();
-        fs.add(new HomeFragment());
+        fs.add(new ShopFragment());
         fs.add(new ClubFragment());
         fs.add(new ScheduleFragment());
         fs.add(new ShoppingFragment());
@@ -78,7 +77,7 @@ public class HomeActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.rb_home, R.id.rb_club, R.id.rb_schedule, R.id.rb_shopping, R.id.rb_personal, R.id.home_fb_iv})
+    @OnClick({R.id.rb_home, R.id.rb_club, R.id.rb_schedule, R.id.rb_shopping, R.id.rb_personal})
     public void onClick(View v) {
         switch (v.getId()) {
             default:
@@ -89,14 +88,14 @@ public class HomeActivity extends BaseActivity {
             case R.id.rb_club:
                 switchfragment(1);
                 break;
-            case R.id.rb_shopping:
+            case R.id.rb_schedule:
                 switchfragment(2);
+                break;
+            case R.id.rb_shopping:
+                switchfragment(3);
                 break;
             case R.id.rb_personal:
                 switchfragment(4);
-                break;
-            case R.id.home_fb_iv:
-                initpopo();
                 break;
         }
     }

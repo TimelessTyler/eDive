@@ -77,13 +77,13 @@ public class SplashActivity extends BaseActivity {
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            if (mApplication.Token.isEmpty()) {
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                finish();
-            }else {
+//            if (mApplication.Token.isEmpty()) {
+//                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+//                finish();
+//            }else {
                 startActivity(new Intent(SplashActivity.this,HomeActivity.class));
                 finish();
-            }
+//            }
         }
     };
 

@@ -150,8 +150,6 @@ public class RlvMyOrderAdapter extends RecyclerView.Adapter<RlvMyOrderAdapter.Vi
         RelativeLayout mRl;
         @BindView(R.id.tv_order_num)
         TextView mTvOrderNum;
-        @BindView(R.id.rl_one)
-        RelativeLayout mRlOne;
         @BindView(R.id.rl_item)
         RelativeLayout item;
 //        @BindView(R.id.rl_tuikuan)

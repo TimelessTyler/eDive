@@ -26,15 +26,7 @@ public class ShoppingFragment extends BaseMvpFragment<ShoppingModel> {
 
     @BindView(R.id.tit)
     CommonTitle mTit;
-    @BindView(R.id.tab)
-    TabLayout mTab;
-    @BindView(R.id.rl)
-    RelativeLayout mRl;
-    @BindView(R.id.vp)
-    ViewPager mVp;
-    @BindView(R.id.bt_cl)
-    Button mBtCl;
-    private ArrayList<Integer> ftab;
+
 
     public ShoppingFragment() {
         // Required empty public constructor
@@ -68,17 +60,6 @@ public class ShoppingFragment extends BaseMvpFragment<ShoppingModel> {
     @Override
     public void onResponse(int whichApi, Object[] t) {
 
-    }
-
-    @OnClick(R.id.bt_cl)
-    public void onClick(View v) {
-        switch (v.getId()) {
-            default:
-                break;
-            case R.id.bt_cl:
-
-                break;
-        }
     }
 
 }
